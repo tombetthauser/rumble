@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const db = require('./config/keys').mongoURI;
+const users = require('./routes/api/users');
 
 mongoose
   .connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => {console.log('connected to mongo')})
   .catch((err) => {console.log(err)})
   
+app.use('/api/users', users);
 
 app.get('/', (req, res) => {
   res.send("sup bitches");
