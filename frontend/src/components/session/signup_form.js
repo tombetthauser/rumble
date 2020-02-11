@@ -11,14 +11,13 @@ class SignupForm extends React.Component {
       password2: '',
       errors: {}
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
   }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
       this.props.history.push('/login');
+      console.log(nextProps);
     }
 
     this.setState({ errors: nextProps.errors })

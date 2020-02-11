@@ -11,6 +11,8 @@
 .main-page-float-div {
   background-color: rgba(255, 255, 255, .8);
   padding: 25px 35px;
+  height: 220px; 
+  width: 680px;
 }
 
 .main-page-float-div h1 {
