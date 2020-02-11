@@ -36,6 +36,7 @@ router.post("/login", (req, res) => {
 
   const username = req.body.username;
   const password = req.body.password;
+  const biography = req.body.biography;
 
   User.findOne({ username }).then(user => {
     if (!user) {
@@ -44,7 +45,10 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, username: user.username };
+        debugger;
+        let biography = user.biography ? user.biography : "HELLO"
+        const payload = { id: user.id, username: user.username, biography };
+        
 
         jwt.sign( //incrypts the payload and sets it as a header 
           payload,

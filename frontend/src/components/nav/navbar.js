@@ -23,7 +23,8 @@ class NavBar extends React.Component {
         <div className="navbar-links-right">
           {/* <Link to={"/profile"}>Profile</Link> */}
           <Link onClick={this.logoutUser}>Log Out</Link>
-          <Link to="/edit">Edit Profile</Link>
+          <Link to={`/user/${this.props.user.id}`}>View Profile</Link>
+          <Link to={`/edit/${this.props.user.id}`}>Edit Profile</Link>
         </div>
       );
     } else {

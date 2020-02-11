@@ -17,6 +17,9 @@ const UserSchema = new Schema({
     date: {
       type: Date,
       default: Date.now
+    },
+    biography: {
+      type: String
     }
   })
 
