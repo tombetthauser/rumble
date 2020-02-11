@@ -44,7 +44,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, name: user.name };
+        const payload = { id: user.id, username: user.username };
 
         jwt.sign( //incrypts the payload and sets it as a header 
           payload,

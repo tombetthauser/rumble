@@ -6,12 +6,14 @@ import NavBarContainer from "./nav/navbar_container";
 import MainPage from "./main/main_page";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
+import EditFormContainer from './profile/edit-profile-container';
 
 const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
       <ProtectedRoute exact path="/" component={MainPage} />
+      <ProtectedRoute exact path='/edit' component={EditFormContainer}/>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
