@@ -1,0 +1,19 @@
+.main-page-div {
+  background-image: url(https://www.thedelite.com/wp-content/uploads/2019/05/GettyImages-93358402-e1562954184459.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-page-float-div {
+  background-color: rgba(255, 255, 255, .8);
+  padding: 25px 35px;
+}
+
+.main-page-float-div h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}

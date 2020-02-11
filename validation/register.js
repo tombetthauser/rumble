@@ -14,7 +14,7 @@ const validateRegisterInput = data => {
   }
 
   if (!Validator.isLength(data.username, { min: 6, max: 18 })) {
-    errors.username = 'Username must be btween 6 and 18 chars';
+    errors.username = 'Username must be between 6 and 18 chars';
   }
 
   if (Validator.isEmpty(data.email)) {
@@ -30,7 +30,7 @@ const validateRegisterInput = data => {
   }
 
   if (!Validator.isLength(data.password, { min: 6, max: 18 })) {
-    errors.password = 'Password must be btween 6 and 18 chars';
+    errors.password = 'Password must be between 6 and 18 chars';
   }
 
   if (Validator.isEmpty(data.password2)) {

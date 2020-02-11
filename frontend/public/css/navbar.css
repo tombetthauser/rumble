@@ -1,0 +1,28 @@
+.navbar-links-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-title {
+  color: rgb(255, 196, 0);
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.navbar-links-right a {
+  color: #222;
+  display: inline;
+  font-weight: 600;
+  padding: 0 15px;
+}
+
+.navbar-links-right a:hover {
+  color: rgb(255, 196, 0);
+  transition: .2s;
+}
+
+.navbar-title, .navbar-links-right {
+  display: inline;
+}
