@@ -8,16 +8,18 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import EditFormContainer from './profile/edit-profile-container';
 import UserProfileContainer from './profile/user-profile-container';
+import ApplicationComponent from './application/application_component';
 
 const App = () => (
   <div>
-    <NavBarContainer />
     <Switch>
       <ProtectedRoute exact path="/" component={MainPage} />
-      <ProtectedRoute exact path='/user/:userId' component={UserProfileContainer}/>
-      <ProtectedRoute exact path='/edit/:userId' component={EditFormContainer}/>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute path="/app" component={ApplicationComponent} />
+
+      <ProtectedRoute exact path='/user/:userId' component={UserProfileContainer}/>
+      <ProtectedRoute exact path='/edit/:userId' component={EditFormContainer}/>
     </Switch>
   </div>
 );

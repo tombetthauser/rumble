@@ -1,0 +1,11 @@
+.application-component-container {
+  border: 2px solid olive;
+  width: 100%;
+  
+  display: flex;
+  align-items: stretch;
+
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+}

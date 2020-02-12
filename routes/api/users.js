@@ -108,16 +108,16 @@ router.post("/register", (req, res) => {
   });
 });
 
-router.patch('/:userId', (req,res) =>{
+router.patch('/:userId', (req,res) => {
   const { errors, isValid } = validateUpdateProfileInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
-    const filter = { _id: req.body._id } 
+    const filter = { _id: req.body._id }
     const update = req.body
-    User.findOneAndUpdate(filter, update, {new: true}).then((user) => { 
+    User.findOneAndUpdate(filter, update, {new: true}).then((user) => {
       res.json(user)})
-    .catch(err => console.log(err)) 
+    .catch(err => console.log(err))
 })
 
 
