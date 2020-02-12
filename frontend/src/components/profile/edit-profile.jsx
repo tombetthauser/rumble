@@ -6,10 +6,11 @@ class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.user.id,
+      _id: this.props.user._id,
       username: this.props.user.username,
       biography: this.props.user.biography
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(type) {
@@ -17,6 +18,11 @@ class EditForm extends React.Component {
       let input = e.target.value;
       this.setState({ [type]: input });
     };
+  }
+  handleSubmit(e){
+    debugger;
+    e.preventDefault();
+    this.props.update(this.state);
   }
 
 

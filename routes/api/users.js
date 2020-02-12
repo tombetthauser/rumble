@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const validateUpdateProfileInput = require('../../validation/update-profile');
 
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
@@ -16,7 +17,8 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     res.json({
-      id: req.user.id,
+
+      _id: req.user._id,
       username: req.user.username,
       email: req.user.email
     });
@@ -45,9 +47,8 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        debugger;
         let biography = user.biography ? user.biography : "HELLO"
-        const payload = { id: user.id, username: user.username, biography };
+        const payload = { _id: user._id, username: user.username, biography };
         
 
         jwt.sign( //incrypts the payload and sets it as a header 
@@ -106,5 +107,19 @@ router.post("/register", (req, res) => {
     }
   });
 });
+
+router.patch('/:userId', (req,res) =>{
+  const { errors, isValid } = validateUpdateProfileInput(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+    const filter = { _id: req.body._id } 
+    const update = req.body
+    User.findOneAndUpdate(filter, update, {new: true}).then((user) => { 
+      res.json(user)})
+    .catch(err => console.log(err)) 
+})
+
+
 
 module.exports = router;
