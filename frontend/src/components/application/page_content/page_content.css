@@ -1,0 +1,13 @@
+.page-content-div {
+  border: 2px solid cornflowerblue;
+  font-size: 12px;
+  color: cornflowerblue;
+  padding: 10px;
+}
+
+/* ABOVE CLASS IS FOR DEVELOPMENT ONLY */
+
+.page-content-div {
+  width: 100%;
+  min-width: 400px;
+}

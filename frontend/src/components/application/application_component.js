@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RightAppColumn from "./right_app_column/right_app_column";
-import LeftNavColumn from "./left_nav_column/left_nav_column";
+import Aside from "./aside/aside_container";
+import PageContent from "./page_content/page_content_container";
+import ProfileEntry from "./profile_entry/profile_entry_container";
 import "./application_component.css";
 
 class ApplicationComponent extends React.Component {
@@ -12,8 +13,9 @@ class ApplicationComponent extends React.Component {
   render() {
     return (
       <div className="application-component-container">
-        <LeftNavColumn />
-        <RightAppColumn />
+        <Aside />
+        <PageContent />
+        <ProfileEntry />
       </div>
     );
   }

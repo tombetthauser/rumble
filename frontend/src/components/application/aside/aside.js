@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./left_nav_column.css";
+import "./aside.css";
 
 class LeftNavColumn extends React.Component {
   constructor(props) {
@@ -9,8 +9,8 @@ class LeftNavColumn extends React.Component {
 
   render() {
     return (
-      <div className="left-nav-column-container">
-        <h1>Left Nav Column</h1>
+      <div className="aside-div">
+        (aside component)
       </div>
     );
   }

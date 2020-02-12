@@ -1,0 +1,13 @@
+.aside-div {
+  border: 2px solid lightpink;
+  font-size: 12px;
+  color: lightpink;
+  padding: 10px;
+}
+
+/* ABOVE CLASS IS FOR DEVELOPMENT ONLY */
+
+.aside-div {
+  width: 275px;
+  flex-shrink: 0;
+}

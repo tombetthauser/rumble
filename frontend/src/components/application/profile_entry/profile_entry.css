@@ -1,0 +1,13 @@
+.profile-entry-div {
+  border: 2px solid tomato;
+  font-size: 12px;
+  color: tomato;
+  padding: 10px;
+}
+
+/* ABOVE CLASS IS FOR DEVELOPMENT ONLY */
+
+.profile-entry-div {
+  width: 300px;
+  flex-shrink: 0;
+}
