@@ -38,6 +38,9 @@ class NavBar extends React.Component {
   }
 
   render() {
+    if(!this.props.user){
+      return null;
+    }
     return (
       <div className="navbar-links-div">
         <Link to={"/"}>
