@@ -25,31 +25,35 @@ class LeftNavColumn extends React.Component {
 
   render() {
 
-    const tempButtonStyle = { // DELETE-THIS-CONST <----------------
-      borderRadius: "5px",
-      display: "block",
-      marginTop: "15px",
-      padding: "3px 10px",
-      width: "150px",
-      cursor: "pointer"
+    const tempUser = {
+      name: "Terry",
+      ringName: "Hulk Hogan",
+      location: "Augusta, GA",
+      age: "66",
+      about:
+        "Looking for friendship, fun and a few fights to stay young at heart."
     };
 
     return (
       <div className="aside-div" title="application > aside.js">
         <SidebarProfile />
-        <div className="DELETE-THIS-DIV <----------------">
-          <button
-            style={tempButtonStyle}
+        <div className="aside-match-link-div">
+          <div
+            className="aside-match-link-image"
+            onClick={this.handleProfileButtonClick}
+            style={{
+              backgroundImage:
+                "url('https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8')",
+              width: "50px",
+              height: "50px"
+            }}
+          ></div>
+          <span
+            className="aside-match-link-text"
             onClick={this.handleProfileButtonClick}
           >
-            view match mode
-          </button>
-          <button style={tempButtonStyle} onClick={() => {}}>
-            view profile mode
-          </button>
-          <button style={tempButtonStyle} onClick={() => {}}>
-            pick matches mode
-          </button>
+            {tempUser.name}
+          </span>
         </div>
       </div>
     );

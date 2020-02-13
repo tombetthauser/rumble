@@ -22,3 +22,24 @@ button:hover {
   flex-shrink: 0;
   border-right: 1px solid lightgrey;
 }
+
+.aside-match-link-div {
+  height: 73px;
+  display: flex;
+  align-items: center;
+}
+
+.aside-match-link-div span, .aside-match-link-div div {
+  cursor: pointer;
+}
+
+.aside-match-link-image {
+  margin-left: 12px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.aside-match-link-text {
+  margin-left: 10px;
+}
