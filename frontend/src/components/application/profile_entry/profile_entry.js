@@ -11,8 +11,7 @@ class ProfileEntry extends React.Component {
 
   render() {
     return (
-      <div className="profile-entry-div">
-        (profile entry component)
+      <div className="profile-entry-div" title="application > profile_entry > profile_entry.js">
       </div>
     );
   }

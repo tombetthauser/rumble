@@ -1,13 +1,17 @@
-.profile-entry-div {
+/* .profile-entry-div {
   border: 2px solid tomato;
   font-size: 12px;
   color: tomato;
   padding: 10px;
-}
+} */
 
 /* ABOVE CLASS IS FOR DEVELOPMENT ONLY */
 
 .profile-entry-div {
+  background-image: url("https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8");
+  background-size: cover;
+  background-position: center;
+  border-left: 1px solid lightgray;
   width: 300px;
   flex-shrink: 0;
   transition: .5s;

@@ -10,6 +10,7 @@
 .encounters-user {
   background-color: rgb(255, 196, 0);
   width: 80%;
+  max-width: 690pxf;
   margin: 5% auto;
 
   display: block;
@@ -52,6 +53,7 @@
   font-size: 40px;
   padding-top: 7px;
   margin: 0;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
   transition: .2s;
 }
 
@@ -62,7 +64,7 @@
 
 .encounters-user-buttons-div {
   position: absolute;
-  bottom: 0;
+  bottom: -50px;
   width: 55%;
   margin-bottom: 3%;
   display: flex;
