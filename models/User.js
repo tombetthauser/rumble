@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-debugger;
 const UserSchema = new Schema({
     username: {
       type: String,
@@ -21,6 +20,11 @@ const UserSchema = new Schema({
     },
     biography: {
       type: String,
+      required: true
+    },
+    liked_users :{
+      type: Array,
+      ref: "likes"
     },
     profile_url: {
       type: String

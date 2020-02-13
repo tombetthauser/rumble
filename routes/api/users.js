@@ -128,6 +128,10 @@ router.post("/register", (req, res) => {
   });
 });
 
+router.get('/', (req, res) => {
+  User.find().then(users => { res.json(users) })
+})
+
 router.patch('/:userId', upload.single("file"), (req,res) =>{
   if(!req.file){
   const { errors, isValid } = validateUpdateProfileInput(req.body);
