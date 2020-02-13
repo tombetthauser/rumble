@@ -14,6 +14,7 @@ const validateUpdateProfileInput = data => {
     errors.username = "Username must be between 6 and 18 chars";
   }
 
+  
   return {
     errors,
     isValid: Object.keys(errors).length === 0

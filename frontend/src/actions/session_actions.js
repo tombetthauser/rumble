@@ -31,7 +31,6 @@ export const logoutUser = () => ({
 
 
 export const update = (user, userId) => dispatch =>{
-  debugger;
   return APIUtil.update(user, userId).then((user)=> dispatch(receiveCurrentUser(user)), 
   err => dispatch(receiveErrors(err.response.data)))
 }
@@ -41,6 +40,7 @@ export const signup = user => dispatch =>
     () => dispatch(receiveCurrentUser(user)),
     err => dispatch(receiveErrors(err.response.data))
   );
+
 
 // Upon login, set the session token and dispatch the current user. Dispatch errors on failure.
 export const login = user => dispatch =>

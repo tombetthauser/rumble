@@ -9,13 +9,18 @@ class EditForm extends React.Component {
       _id: this.props.user._id,
       username: this.props.user.username,
       biography: this.props.user.biography,
-      photoFile: this.props.user.profile_url,
-      profile_url: null
+      photoFile: this.props.user.profile_url
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePhotoSubmit = this.handlePhotoSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.showProfilePicture = this.showProfilePicture.bind(this);
+    this.handleUserInformationSubmit = this.handleUserInformationSubmit.bind(this)
+  }
+
+
+  componentDidMount(){
+
   }
 
   handleInput(type) {
@@ -42,7 +47,7 @@ class EditForm extends React.Component {
 
   // }
 
-  handleSubmit(e) {
+  handlePhotoSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     if (this.state.photoFile) {
@@ -50,13 +55,20 @@ class EditForm extends React.Component {
       //is in the upload function in the routes same key 
     }
     formData.append("_id", this.state._id)
-    formData.append("username", this.state.username);
-    formData.append("biography", this.state.biography);
+
     this.props.update(formData, this.state._id);
 
-    // .then(() => {
-    //   this.props.history.push(`/users/${this.props.currentUser.id}`);
-    // });
+
+  }
+
+  handleUserInformationSubmit(e){
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("_id", this.state._id)
+    formData.append("username", this.state.username);
+     formData.append("biography", this.state.biography);
+    this.props.update(formData, this.state._id);
+
   }
 
   showProfilePicture() {
@@ -102,7 +114,8 @@ class EditForm extends React.Component {
           type="file"
           onChange={this.handleFile}
         />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handlePhotoSubmit}>Submit</button>
+        <button onClick={this.handleUserInformationSubmit}>Change Profile Info</button>
       </div>
     );
   }
