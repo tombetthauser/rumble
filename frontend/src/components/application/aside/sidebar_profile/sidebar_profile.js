@@ -9,10 +9,12 @@ class SidebarProfile extends React.Component {
 
   render() {
     return (
-      <div className="sidebar-profile-div">
+      <div
+        className="sidebar-profile-div"
+        title="application > aside > sidebar_profile.js"
+      >
         <div className="sidebar-profile-img" />
-        <span className="sidebar-profile-username" >Randy</span>
-        {/* <br/>(sidebar profile componenet) */}
+        <span className="sidebar-profile-username">Randy</span>
       </div>
     );
   }

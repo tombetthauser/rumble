@@ -35,11 +35,13 @@ class LeftNavColumn extends React.Component {
     };
 
     return (
-      <div className="aside-div">
+      <div className="aside-div" title="application > aside.js">
         <SidebarProfile />
-        (aside component)
         <div className="DELETE-THIS-DIV <----------------">
-          <button style={tempButtonStyle} onClick={this.handleProfileButtonClick}>
+          <button
+            style={tempButtonStyle}
+            onClick={this.handleProfileButtonClick}
+          >
             view match mode
           </button>
           <button style={tempButtonStyle} onClick={() => {}}>
