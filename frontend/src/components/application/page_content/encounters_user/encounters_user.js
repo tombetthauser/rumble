@@ -8,12 +8,26 @@ class EncountersUser extends React.Component {
   }
 
   render() {
+    const tempUser = {
+      name: "Terry",
+      ringName: "Hulk Hogan",
+      location: "Augusta, GA",
+      age: "66"
+    }
+
     return (
-      <div className="encounters-user">
-        {/* <span className="content-header-rumble-match">
-          <span className="content-header-rumble">rumble</span>{" "}
-          <span className="content-header-match">match</span>
-        </span> */}
+      <div className="encounters-user" title="application > encounters_user.js">
+        <div className="encounters-user-left"></div>
+        <div className="encounters-user-text">
+          <span>name: {tempUser.name}</span>
+          <span>ring name: {tempUser.ringName}</span>
+          <span>location: {tempUser.location}</span>
+          <span>age: {tempUser.age}</span>
+        </div>
+        <div className="encounters-user-buttons-div">
+          <button>✋</button>
+          <button>👊</button>
+        </div>
       </div>
     );
   }
