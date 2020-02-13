@@ -10,4 +10,7 @@
 .profile-entry-div {
   width: 300px;
   flex-shrink: 0;
+  transition: .5s;
+  overflow: hidden;
+  white-space: nowrap;
 }

@@ -1,0 +1,33 @@
+.encounters-user {
+  border: 2px solid pink;
+  font-size: 12px;
+  color: pink;
+}
+
+/* ABOVE CLASS IS FOR DEVELOPMENT ONLY */
+
+.encounters-user {
+  width: 80%;
+  min-width: 350px;
+  height: 20vw;
+  min-height: 260px;
+  margin: 5% auto;
+
+  display: block;
+  border-radius: 15px;
+}
+
+/* .content-header-rumble-match {
+}
+
+.content-header-rumble {
+  color: rgb(255, 196, 0);
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.content-header-match {
+  color: rgb(255, 196, 0);
+  font-weight: 100;
+  font-size: 30px;
+} */
