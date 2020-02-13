@@ -16,7 +16,7 @@ class EncountersUser extends React.Component {
     }
 
     return (
-      <div className="encounters-user" title="application > encounters_user.js">
+      <div className="encounters-user" title="application > page_content > encounters_user.js">
         <div className="encounters-user-left"></div>
         <div className="encounters-user-text">
           <span>name: {tempUser.name}</span>

@@ -12,10 +12,9 @@ class PageContent extends React.Component {
 
   render() {
     return (
-      <div className="page-content-div">
+      <div className="page-content-div" title="application > page_content > page_content.js">
         <ContentHeader />
         <EncountersUser />
-        (page content component)
       </div>
     );
   }
