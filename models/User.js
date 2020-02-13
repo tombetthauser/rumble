@@ -21,6 +21,13 @@ const UserSchema = new Schema({
     biography: {
       type: String,
       required: true
+    },
+    liked_users :{
+      type: Array,
+      ref: "likes"
+    },
+    profile_url: {
+      type: String
     }
   })
 

@@ -7,6 +7,6 @@ const mSTP = (state) =>({
 })
 
 const mDTP = (dispatch) =>({
-  update: (user) => dispatch(update(user))
+  update: (user, userId) => dispatch(update(user, userId))
 })
 export default connect(mSTP , mDTP)(EditForm)
