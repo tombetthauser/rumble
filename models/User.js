@@ -25,6 +25,9 @@ const UserSchema = new Schema({
     liked_users :{
       type: Array,
       ref: "likes"
+    },
+    profile_url: {
+      type: String
     }
   })
 
