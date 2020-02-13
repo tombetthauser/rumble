@@ -12,7 +12,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
-        user: action.currentUser.data 
+        user: action.currentUser//.data 
       };
     case RECEIVE_USER_LOGOUT:
       return {
@@ -23,6 +23,3 @@ export default function(state = initialState, action) {
       return state;
   }
 }
-
-
-

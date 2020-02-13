@@ -24,6 +24,9 @@ class EditForm extends React.Component {
       this.setState({ [type]: input });
     };
   }
+<<<<<<< HEAD
+  handleSubmit(e){
+=======
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
@@ -43,6 +46,7 @@ class EditForm extends React.Component {
   // }
 
   handleSubmit(e) {
+>>>>>>> master
     e.preventDefault();
     const formData = new FormData();
     if (this.state.photoFile) {
