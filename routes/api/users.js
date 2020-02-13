@@ -108,6 +108,10 @@ router.post("/register", (req, res) => {
   });
 });
 
+router.get('/', (req, res) => {
+  User.find().then(users => { res.json(users) })
+})
+
 router.patch('/:userId', (req,res) =>{
   const { errors, isValid } = validateUpdateProfileInput(req.body);
   if (!isValid) {

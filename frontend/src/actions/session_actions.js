@@ -31,7 +31,6 @@ export const logoutUser = () => ({
 
 
 export const update = user => dispatch =>{
-  debugger;
   return APIUtil.update(user).then((user)=> dispatch(receiveCurrentUser(user)), 
   err => dispatch(receiveErrors(err.response.data)))
 }
