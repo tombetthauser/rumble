@@ -21,7 +21,9 @@ const UserSchema = new Schema({
     },
     biography: {
       type: String,
-      required: true
+    },
+    profile_url: {
+      type: String
     }
   })
 
