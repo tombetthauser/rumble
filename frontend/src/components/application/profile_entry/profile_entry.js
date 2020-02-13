@@ -10,8 +10,23 @@ class ProfileEntry extends React.Component {
   }
 
   render() {
+    const tempUser = {
+      name: "Terry",
+      ringName: "Hulk Hogan",
+      location: "Augusta, GA",
+      age: "66",
+      about: "Looking for friendship, fun and a fight to stay young at heart."
+    };
+
     return (
       <div className="profile-entry-div" title="application > profile_entry > profile_entry.js">
+        <div className="profile-entry-text-div">
+          <span><span className="bold-text">name: </span>{tempUser.name}</span>
+          <span><span className="bold-text">ring name: </span>{tempUser.ringName}</span>
+          <span><span className="bold-text">location: </span>{tempUser.location}</span>
+          <span><span className="bold-text">age: </span>{tempUser.age}</span>
+          {/* <span><span className="bold-text about-text">about: </span>{tempUser.about}</span> */}
+        </div>
       </div>
     );
   }

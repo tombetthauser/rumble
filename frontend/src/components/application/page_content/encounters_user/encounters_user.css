@@ -29,13 +29,14 @@
 
 .encounters-user-text {
   /* background-color: pink; */
+  background-color: rgb(255, 196, 0);
   line-height: 20px;
   position: absolute;
   top: 32.5%;
   left: 57.5%;
   font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
+  width: 40%;
+  white-space: normal;
 }
 
 .encounters-user-text span {
@@ -69,6 +70,15 @@
   margin-bottom: 3%;
   display: flex;
   justify-content: space-around;
+}
+
+span span.bold-text {
+  font-weight: 800;
+  display: inline;
+}
+
+span span.about-text {
+  margin-top: 20px;
 }
 
 /* .content-header-rumble-match {
