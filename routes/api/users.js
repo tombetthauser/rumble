@@ -45,6 +45,7 @@ router.get(
 
 
 
+
 router.post("/login", (req, res) => {
   console.log("login triggered");
   // res.json({ msg: "login res" });
@@ -59,6 +60,7 @@ router.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const biography = req.body.biography;
+  const photoUrl = req.body.photoUrl;
 
   User.findOne({ username }).then(user => {
     if (!user) {
@@ -67,8 +69,9 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        let biography = user.biography ? user.biography : "HELLO"
-        const payload = { _id: user._id, username: user.username, biography };
+        let biography = user.biography ? user.biography : ""
+        let profile_url = user.profile_url ? user.profile_url: "";
+        const payload = { _id: user._id, username: user.username, biography, profile_url};
         
 
         jwt.sign( //incrypts the payload and sets it as a header 
@@ -128,29 +131,25 @@ router.post("/register", (req, res) => {
   });
 });
 
-<<<<<<< HEAD
-router.patch('/:userId', (req,res) => {
-=======
 router.get('/', (req, res) => {
   User.find().then(users => { res.json(users) })
 })
 
 router.patch('/:userId', upload.single("file"), (req,res) =>{
   if(!req.file){
->>>>>>> master
   const { errors, isValid } = validateUpdateProfileInput(req.body);
   if (!isValid) {
   return res.status(400).json(errors);
   }
     const filter = { _id: req.body._id }
     const update = req.body
-<<<<<<< HEAD
+
     User.findOneAndUpdate(filter, update, {new: true}).then((user) => {
       res.json(user)})
     .catch(err => console.log(err))
-})
-=======
+    
     console.log(req.body);
+
     User.findOneAndUpdate(filter, update, {new: true}).then((user) => { 
       res.json(user)})
     .catch(err => console.log(err)) 
@@ -170,7 +169,7 @@ router.patch('/:userId', upload.single("file"), (req,res) =>{
     console.log(AWS_SECRET_ACCESS_KEY);
 
     //Where you want to store your file
->>>>>>> master
+
 
     var params = {
       Bucket: AWS_BUCKET_NAME,
@@ -192,7 +191,7 @@ router.patch('/:userId', upload.single("file"), (req,res) =>{
       // };
       const filter = { _id: req.body._id };
       console.log(req.body)
-      const update = { profile_url: s3FileURL + file.originalname };
+      const update = { profile_url: s3FileURL + file.originalname};
       console.log(update)
       User.findOneAndUpdate(filter, update, {new: true})
       .then((user) => {

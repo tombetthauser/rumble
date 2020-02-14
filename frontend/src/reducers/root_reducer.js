@@ -6,7 +6,7 @@ import usersReducer from "./users_reducer";
 
 const RootReducer = combineReducers({
   session: sessionReducer,
-  errors: errorsReducer, // ?
+  errors: errorsReducer, 
   users: usersReducer
 });
 
