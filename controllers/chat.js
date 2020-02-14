@@ -3,40 +3,42 @@ const Message = require('../models/chat/Message');
 
 // get all conversations that logged in user is part of
 exports.getConversations = function(req, res) {
-	console.log('++++ processing request');
 	Conversation.find({ participants: req.user._id })
-	.select("_id") // only need _id
 	.exec(function(err, conversations) {
-			// now we either have an error, or a bunch of conversations
-			console.log("++++ executing query");
-			if (err) throw err;
-			return res.status(200).json({ conversations });
+		// now we either have an error, or a bunch of conversations
+		if (err) throw err;
+		
+		if (conversations.length > 0) {
+			let conversationPreviews = [];
 
-			// Set up empty array to hold conversations + most recent message
-			// let conversationPreviews = [];
-			
-			// extracting the first message from each conversation
-			// conversations.forEach(function(conversation) {
-			// 		console.log("++++ looping over conversations");
-			// 		Message.find({ conversationId: conversation._id })
-			// 		.sort("-createdAt")
-			// 		.limit(1)
-			// 		.populate({
-			// 				// returns `firstName lastName` instead of `_id` when invoking `message.author`
-			// 				path: "author",
-			// 				select: "profile.firstName profile.lastName"
-			// 		})
-			// 		.exec(function(err, message) {
-			// 				if (err) throw err;
-			// 				console.log("++++ going over messagw");
-			// 				// insert this into the conversations array
-			// 				conversationPreviews.push(message);
-			// 				if (conversationPreviews.length === conversations.length) {
-			// 						// finally send all the conversations
-			// 						return res.status(200).json({ conversations: conversationPreviews });
-			// 				}
-			// 		});
-			// });
+			conversations.forEach(function(conversation) {
+				// get the latest message as the message preview
+				Message.find({ conversationId: conversation._id })
+					.sort("-createdAt")
+					.limit(1)
+					.populate({
+						path: "author",
+						select: "username"
+					})
+					// .exec finally runs the query
+					.exec(function(err, previewMessage) {
+						if (err) throw err;
+						// insert this into the conversations array
+						let formattedPreview = {
+							conversationId: conversation._id,
+							participants: conversation.participants,
+							previewMessage,
+						}
+						conversationPreviews.push(formattedPreview);
+						if (conversationPreviews.length === conversations.length) {
+							// finally send all the conversations
+							return res.status(200).json({ conversations: conversationPreviews });
+						}
+					});
+			});
+		} else {
+			return res.status(200).json({ conversations });
+		}
 	});
 };
 
@@ -47,7 +49,7 @@ exports.getConversation = function(req, res) {
 	.sort("-createdAt")
 	.populate({
 		path: "author",
-		select: "profile.firstName profile.lastName"
+		select: "username"
 	})
 	.exec(function(err, messages) {
 		if (err) throw err;
@@ -65,7 +67,7 @@ exports.newConversation = function(req, res) {
     participants: [req.user._id, req.body.recipientId]
   });
 
-  conversation.save(function(err, newConversation) {
+  conversation.save(function(err, conversation) {
 		if (err) throw err;
 		return res.status(200).json({ conversation });
   });
@@ -74,14 +76,13 @@ exports.newConversation = function(req, res) {
 // send a message
 exports.sendMessage = function(req, res) {
   const message = new Message({
-    conversationId: req.body.conversationId,
-    body: req.body.composedMessage,
+    conversationId: req.params.conversationId,
+    body: req.body.message,
     author: req.user._id
   });
 
   message.save(function(err, message) {
     if (err) throw err;
-
     return res.status(200).json({ message });
   });
 };

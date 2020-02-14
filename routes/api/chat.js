@@ -15,4 +15,7 @@ router.post('/', requireAuth, ChatController.newConversation);
 // get all messages from a specific conversation
 router.get('/:conversationId', requireAuth, ChatController.getConversation);
 
+// post a message to a specific conversation
+router.post('/:conversationId', requireAuth, ChatController.sendMessage);
+
 module.exports = router;

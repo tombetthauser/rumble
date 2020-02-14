@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 require("./models/User");
 const users = require("./routes/api/users");
-const chatRoutes = require("./routes/api/conversations");
+const chatRoutes = require("./routes/api/chat");
 const app = express();
 app.use(cors());
 
