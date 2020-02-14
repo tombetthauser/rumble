@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 require("./models/User");
 const users = require("./routes/api/users");
+const chatRoutes = require("./routes/api/conversations");
 const app = express();
 app.use(cors());
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use(passport.initialize());
 require('./config/passport')(passport);
 app.use('/api/users', users);
+app.use('/api/chat', chatRoutes);
 
 app.get('/', (req, res) => {
   res.send("Backend running");
