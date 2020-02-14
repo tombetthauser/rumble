@@ -18,11 +18,6 @@ class EditForm extends React.Component {
     this.handleUserInformationSubmit = this.handleUserInformationSubmit.bind(this)
   }
 
-
-  componentDidMount(){
-
-  }
-
   handleInput(type) {
     return e => {
       let input = e.target.value;
@@ -48,7 +43,7 @@ class EditForm extends React.Component {
 
   // }
 
-  handleSubmit(e) {
+  handlePhotoSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     if (this.state.photoFile) {

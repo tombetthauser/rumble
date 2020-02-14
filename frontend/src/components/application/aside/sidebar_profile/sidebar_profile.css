@@ -22,12 +22,13 @@
 .sidebar-profile-img {
   width: 50px;
   height: 50px;
-  border-radius: 25px;
+  border-radius: 50%;
   background-image: url("https://gossipgist.com/uploads/15954/macho-man.png");
   background-size: cover;
   background-position: center;
   display: inline-block;
   margin-left: 12px;
+  /* border: 3px solid rgb(255, 196, 0); */
 }
 
 .sidebar-profile-username {
