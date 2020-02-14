@@ -8,6 +8,9 @@ import "./application_component.css";
 class ApplicationComponent extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      test: "its working!"
+    }
   }
 
   render() {

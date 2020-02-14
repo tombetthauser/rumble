@@ -10,7 +10,8 @@ class PageContent extends React.Component {
     super(props);
   }
 
-  render() {
+  
+  render() {    
     return (
       <div className="page-content-div" title="application > page_content > page_content.js">
         <ContentHeader />

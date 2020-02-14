@@ -8,6 +8,7 @@ import SignupFormContainer from "./session/signup_form_container";
 import EditFormContainer from "./profile/edit-profile-container";
 import UserProfileContainer from "./profile/user-profile-container";
 import ApplicationComponent from "./application/application_component";
+import MeetingsContainer from "./meetings/meetings-container";
 
 const App = () => (
   <div>

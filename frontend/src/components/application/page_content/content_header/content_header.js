@@ -8,11 +8,15 @@ class ContentHeader extends React.Component {
   }
 
   render() {
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~")
+    console.log(this.props)
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~")
+
     return (
       <div className="content-header" title="application > page_content > content_header.js">
         <span className="content-header-rumble-match">
           <span className="content-header-rumble">rumble</span>{" "}
-          <span className="content-header-match">match</span>
+          <span className="content-header-match">{}</span>
         </span>
       </div>
     );

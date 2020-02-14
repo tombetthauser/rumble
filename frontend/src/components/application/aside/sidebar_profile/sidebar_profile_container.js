@@ -5,7 +5,7 @@ import SidebarProfile from "./sidebar_profile";
 // import { logout } from "../../actions/session_actions";
 
 const mapStateToProps = state => ({
-  // user: state.session.user,
+  // currentUser: state.session.currentUser,
   // loggedIn: state.session.isAuthenticated
 });
 
