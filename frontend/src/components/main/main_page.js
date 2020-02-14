@@ -1,8 +1,5 @@
-import React from "react";
 import NavBarContainer from "../nav/navbar_container";
-
-
-
+import React from "react";
 
 class MainPage extends React.Component {
   render() {

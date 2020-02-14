@@ -1,17 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./content_header.css";
 
 class ContentHeader extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~")
-    console.log(this.props)
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~")
-
     return (
       <div className="content-header" title="application > page_content > content_header.js">
         <span className="content-header-rumble-match">

@@ -1,37 +1,7 @@
-/* .profile-entry-div {
-  border: 2px solid tomato;
-  font-size: 12px;
-  color: tomato;
-  padding: 10px;
-} */
 
-/* ABOVE CLASS IS FOR DEVELOPMENT ONLY */
-
-.profile-entry-div {
-  background-image: url("https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8");
-  background-size: cover;
-  background-position: center;
-  /* border-left: 1px solid lightgray; */
-  width: 300px;
-  flex-shrink: 0;
-  transition: .5s;
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-}
-
-.profile-entry-text-div {
-  /* background-color: pink; */
-  line-height: 20px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  background-color: rgb(255, 196, 0);
-  padding: 15px 0 20px 2vw;
+span span.bold-text {
+  font-weight: 600;
+  display: inline;
 }
 
 .profile-entry-text-div span {
@@ -39,13 +9,27 @@
   color: #fff;
 }
 
-span span.bold-text {
-  font-weight: 600;
-  display: inline;
+.profile-entry-text-div {
+  background-color: rgb(255, 196, 0);
+  padding: 15px 0 20px 2vw;
+  white-space: nowrap;
+  position: absolute;
+  line-height: 20px;
+  overflow: hidden;
+  font-size: 14px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
-/* 
-span span.about-text {
-  width: 230px;
-  overflow: none;
-  white-space: none;
-} */
+
+.profile-entry-div {
+  background-image: url("https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8");
+  background-position: center;
+  background-size: cover;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  transition: .5s;
+  flex-shrink: 0;
+  width: 300px;
+}
