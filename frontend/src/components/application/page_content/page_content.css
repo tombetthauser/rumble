@@ -1,0 +1,18 @@
+/* .page-content-div {
+  border: 2px solid cornflowerblue;
+  font-size: 12px;
+  color: cornflowerblue;
+} */
+
+/* ABOVE CLASS IS FOR DEVELOPMENT ONLY */
+
+.page-content-div {
+  width: 100%;
+  min-width: 630px;
+  z-index: 2;
+  background-color: #fff;
+  border-left: 1px solid lightgray;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}

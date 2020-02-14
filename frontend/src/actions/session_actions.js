@@ -30,8 +30,13 @@ export const logoutUser = () => ({
 });
 
 
+<<<<<<< HEAD
+export const update = user => dispatch =>{
+  return APIUtil.update(user).then((user)=> dispatch(receiveCurrentUser(user)), 
+=======
 export const update = (user, userId) => dispatch =>{
   return APIUtil.update(user, userId).then((user)=> dispatch(receiveCurrentUser(user)), 
+>>>>>>> master
   err => dispatch(receiveErrors(err.response.data)))
 }
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
@@ -44,17 +49,15 @@ export const signup = user => dispatch =>
 
 // Upon login, set the session token and dispatch the current user. Dispatch errors on failure.
 export const login = user => dispatch =>
-  APIUtil.login(user)
-    .then(res => {
-      const { token } = res.data;
-      localStorage.setItem("jwtToken", token);
-      APIUtil.setAuthToken(token);
-      const decoded = jwt_decode(token);
-      dispatch(receiveCurrentUser(decoded));
-    })
-    .catch(err => {
-      dispatch(receiveErrors(err.response.data));
-    });
+  APIUtil.login(user).then(res => {
+    const { token } = res.data;
+    localStorage.setItem("jwtToken", token);
+    APIUtil.setAuthToken(token);
+    const decoded = jwt_decode(token);
+    dispatch(receiveCurrentUser(decoded));
+  }).catch(err => {
+    dispatch(receiveErrors(err.response.data));
+  });
 
 // We wrote this one earlier
 export const logout = () => dispatch => {

@@ -131,14 +131,25 @@ router.post("/register", (req, res) => {
   });
 });
 
+router.get('/', (req, res) => {
+  User.find().then(users => { res.json(users) })
+})
+
 router.patch('/:userId', upload.single("file"), (req,res) =>{
   if(!req.file){
   const { errors, isValid } = validateUpdateProfileInput(req.body);
   if (!isValid) {
   return res.status(400).json(errors);
   }
-    const filter = { _id: req.body._id } 
+    const filter = { _id: req.body._id }
     const update = req.body
+
+    User.findOneAndUpdate(filter, update, {new: true}).then((user) => {
+      res.json(user)})
+    .catch(err => console.log(err))
+    
+    console.log(req.body);
+
     User.findOneAndUpdate(filter, update, {new: true}).then((user) => { 
       res.json(user)})
     .catch(err => console.log(err)) 
@@ -158,6 +169,7 @@ router.patch('/:userId', upload.single("file"), (req,res) =>{
     console.log(AWS_SECRET_ACCESS_KEY);
 
     //Where you want to store your file
+
 
     var params = {
       Bucket: AWS_BUCKET_NAME,
