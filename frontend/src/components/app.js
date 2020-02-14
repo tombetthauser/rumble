@@ -9,6 +9,7 @@ import EditFormContainer from "./profile/edit-profile-container";
 import UserProfileContainer from "./profile/user-profile-container";
 import ApplicationComponent from "./application/application_component";
 import MeetingsContainer from "./meetings/meetings-container";
+import ConversationShow from "./chat/conversation_show";
 
 const App = () => (
   <div>
@@ -19,6 +20,7 @@ const App = () => (
       <ProtectedRoute exact path='/edit/:userId' component={EditFormContainer}/>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute path="/app/chat" component={ConversationShow} />
       <Route path="/app" component={ApplicationComponent} />
 
       <ProtectedRoute exact path='/user/:userId' component={UserProfileContainer}/>

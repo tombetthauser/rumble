@@ -1,3 +1,4 @@
+// TODO: clean up!
 require("dotenv").config();
 const path = require("path");
 const cors = require("cors");
@@ -10,6 +11,7 @@ const passport = require('passport');
 require("./models/User");
 const users = require("./routes/api/users");
 const chatRoutes = require("./routes/api/chat");
+const configureChat = require("./config/configureChat");
 const app = express();
 app.use(cors());
 
@@ -63,8 +65,13 @@ app.use(function(req, res, next) {
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => {
+// configure for socket.io
+const server = app.listen(port, () => {
   console.log(`Server is running on ${port}...`)
 })
 
-module.exports = app;
+// set up chat
+const io = require("socket.io").listen(server);
+configureChat(io);
+
+module.exports = server;
