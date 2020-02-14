@@ -26,7 +26,21 @@ class LeftNavColumn extends React.Component {
 
   render() {
 
-    const tempUser = {
+    let matchedUsers = [         
+      {
+        id: 1,
+        name: "Terry",
+        ringName: "Hulk Hogan",
+        location: "Augusta, GA",
+        age: "66",
+        about:
+          "Looking for friendship, fun and a few fights to stay young at heart.",
+        profileImage:
+          "url('https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8')"
+      }
+    ];
+
+    let otherUser = {
       name: "Terry",
       ringName: "Hulk Hogan",
       location: "Augusta, GA",
@@ -35,14 +49,21 @@ class LeftNavColumn extends React.Component {
         "Looking for friendship, fun and a few fights to stay young at heart."
     };
 
+    matchedUsers = this.props.matchedUsers ? this.props.matchedUsers : matchedUsers;
+
     return (
       <div className="aside-div" title="application > aside.js">
         <SidebarProfile />
-        <div className="aside-match-link-div">
-          <div className="aside-match-link-image" onClick={this.handleProfileButtonClick}
-            style={{ backgroundImage: "url('https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8')" }}
-          ></div>
-          <span className="aside-match-link-text" onClick={this.handleProfileButtonClick} >{tempUser.name}</span>
+        <Link to="/app">
+          <div className="to-connections-button">Back to meeting new people ></div>
+        </Link>
+        <div className="aside-match-link-div" className="aside-match-link-container" >
+          <Link to="/app/connections">
+            <div className="aside-match-link-image" onClick={this.handleProfileButtonClick}
+              style={{ backgroundImage: matchedUsers[0].profileImage }}
+            ></div>
+            <span className="aside-match-link-text" onClick={this.handleProfileButtonClick} >{ matchedUsers[0].name }</span>
+          </Link>
         </div>
       </div>
     );

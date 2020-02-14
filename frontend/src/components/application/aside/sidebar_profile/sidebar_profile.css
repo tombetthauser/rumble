@@ -1,22 +1,9 @@
-/* .sidebar-profile-div {
-  border: 2px solid yellowgreen;
-  font-size: 12px;
-  color: yellowgreen;
-} */
-
-/* ABOVE CLASS IS FOR DEVELOPMENT ONLY */
-
 .sidebar-profile-div {
   width: 100%;
   height: 72px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid lightgrey;
-  position: sticky;
-  top: 0;
-  z-index: 1;
   background-color: #fff;
-  /* box-shadow: 0px 10px 10px rgb(255, 255, 255, 1); */
 }
 
 .sidebar-profile-img {
@@ -28,7 +15,6 @@
   background-position: center;
   display: inline-block;
   margin-left: 12px;
-  /* border: 3px solid rgb(255, 196, 0); */
 }
 
 .sidebar-profile-username {
