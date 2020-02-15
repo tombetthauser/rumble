@@ -7,8 +7,8 @@
 }
 
 .aside-div {
-  width: 275px;
   flex-shrink: 0;
+  width: 275px;
 }
 
 .aside-match-link-text {
@@ -17,32 +17,32 @@
 }
 
 .aside-match-link-container {
+  align-content: center;
   padding: 12px 0;
   display: flex;
-  align-content: center;
 }
 
 .aside-match-link-image {
-  margin-left: 12px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
   border: 3px solid rgb(255, 196, 0);
-  width: 44px;
-  height: 44px;
-  transition: .2s;
+  background-position: center;
+  background-size: cover;
   display: inline-block;
+  border-radius: 50%;
+  margin-left: 12px;
+  transition: .2s;
+  height: 44px;
+  width: 44px;
 }
 
 .to-connections-button {
   background-color: rgba(255, 196, 0, 0.2);
-  font-size: 13px;
   letter-spacing: .5px;
-  font-weight: 500;
-  color: #555;
-  height: 45px;
-  display: flex;
   align-items: center;
   padding-left: 15px;
+  font-weight: 500;
+  font-size: 13px;
   cursor: pointer;
+  display: flex;
+  color: #555;
+  height: 45px;
 }

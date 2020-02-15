@@ -1,7 +1,29 @@
 import React from "react";
 import EncountersUser from "./encounters_user/encounters_user_container";
 import ContentHeader from "./content_header/content_header_container";
+import { Switch, Route } from "react-router-dom";
 import "./page_content.css";
+
+const EncountersComponent = () => (
+  <div className="encounters">
+    <ContentHeader headerText={"match"}/>
+    <EncountersUser />
+  </div>
+)
+
+const ConversationShow = () => (
+  <div className="encounters">
+    <ContentHeader headerText={"chat"}/>
+    {/* <EncountersUser /> */}
+  </div>
+)
+
+const EditProfileComponent = () => (
+  <div className="encounters">
+    <ContentHeader headerText={"profile"}/>
+    {/* <EncountersUser /> */}
+  </div>
+)
 
 class PageContent extends React.Component {
   constructor(props) {
@@ -11,8 +33,12 @@ class PageContent extends React.Component {
   render() {    
     return (
       <div className="page-content-div" title="application > page_content > page_content.js">
-        <ContentHeader />
-        <EncountersUser />
+        <Switch>
+          <Route exact path="/app/connections" component={ConversationShow} />
+          <Route exact path="/app/edit-profile" component={EditProfileComponent} />
+          <Route exact path="/app" component={EncountersComponent} />
+        </Switch>
+
       </div>
     );
   }

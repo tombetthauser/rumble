@@ -4,33 +4,56 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import SidebarProfile from "./sidebar_profile/sidebar_profile";
 
+const BackToMeetings = () => (
+  <Link to="/app">
+    <div className="to-connections-button hidden">Back to meeting new people ></div>
+  </Link>
+)
+
+const ConnectionListItem = ({connections}) => {
+  if (connections) {
+    return(
+      <Link to="/app/connections">
+        <div className="aside-match-link-div" className="aside-match-link-container" >
+          <div className="aside-match-link-image" style={{ backgroundImage: connections[0].profileImage }}></div>
+          <span className="aside-match-link-text" >{ connections[0].name }</span>
+        </div>
+      </Link>
+    )
+  } else {
+    return null;
+  }
+}
+
+const ConnectionList = ({ connections }) => (
+  <div className="connection-list">
+    <ConnectionListItem connections={connections} />
+    <ConnectionListItem connections={connections} />
+    <ConnectionListItem connections={connections} />
+    <ConnectionListItem connections={connections} />
+  </div>
+)
+
 class LeftNavColumn extends React.Component {
   constructor(props) {
     super(props);
     this.handleProfileButtonClick = this.handleProfileButtonClick.bind(this);
-    this.state = {
-      url: this.props.match.url
-    }
+  }
+
+  renderMeetingsButton() {
+    return this.props.location.pathname !== '/app' ? (<BackToMeetings />) : null;
   }
 
   handleProfileButtonClick() {}
 
   render() {
     const matchedUsers = this.props.matchedUsers ? this.props.matchedUsers : [{id: 1, name: "Terry", ringName: "Hulk Hogan", location: "Augusta, GA", age: "66", about: "Looking for friendship, fun and a few fights to stay young at heart.", profileImage: "url('https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8')"}];
-    const { url } = this.state;
 
     return (
       <div className="aside-div" title="application > aside.js">
         <SidebarProfile />
-        <Link to="/app" style={{ display: url === '/app' ? "block" : "none"}}>
-          <div className="to-connections-button">Back to meeting new people ></div>
-        </Link>
-        <Link to="/app/connections">
-          <div className="aside-match-link-div" className="aside-match-link-container" >
-            <div className="aside-match-link-image" onClick={this.handleProfileButtonClick} style={{ backgroundImage: matchedUsers[0].profileImage }}></div>
-            <span className="aside-match-link-text" onClick={this.handleProfileButtonClick} >{ matchedUsers[0].name }</span>
-          </div>
-        </Link>
+        { this.renderMeetingsButton() } 
+        <ConnectionList connections={ matchedUsers } />
       </div>
     );
   }
