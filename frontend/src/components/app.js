@@ -14,7 +14,7 @@ import ConversationShow from "./chat/conversation_show";
 const App = () => (
   <div>
     <Switch>
-      <ProtectedRoute exact path="/" component={MainPage} />
+      <Route exact path="/" component={MainPage} />
       <ProtectedRoute exact path="/meeting" component={MeetingsContainer}/>
       <ProtectedRoute exact path='/user/:userId' component={UserProfileContainer}/>
       <ProtectedRoute exact path='/edit/:userId' component={EditFormContainer}/>
