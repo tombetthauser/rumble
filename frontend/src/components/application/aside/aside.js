@@ -28,9 +28,6 @@ const ConnectionListItem = ({connections}) => {
 const ConnectionList = ({ connections }) => (
   <div className="connection-list">
     <ConnectionListItem connections={connections} />
-    <ConnectionListItem connections={connections} />
-    <ConnectionListItem connections={connections} />
-    <ConnectionListItem connections={connections} />
   </div>
 )
 
@@ -53,6 +50,7 @@ class LeftNavColumn extends React.Component {
       <div className="aside-div" title="application > aside.js">
         <SidebarProfile />
         { this.renderMeetingsButton() } 
+        <span className="match-conversations-text">Match Queue / Conversations:</span>
         <ConnectionList connections={ matchedUsers } />
       </div>
     );

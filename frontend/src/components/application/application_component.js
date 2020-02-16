@@ -15,7 +15,8 @@ class ApplicationComponent extends React.Component {
       <div className="application-component-container">
         <Aside />
         <PageContent />
-        <Route path="/app/connections" component={ProfileEntry} />
+        <ProfileEntry />
+        {/* <Route path="/app/connections" component={ProfileEntry} /> */}
       </div>
     );
   }
