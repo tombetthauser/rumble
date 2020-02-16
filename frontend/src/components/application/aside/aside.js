@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import SidebarProfile from "./sidebar_profile/sidebar_profile";
+import ConversationList from "../../chat/conversation_list";
 
 const BackToMeetings = () => (
   <Link to="/app">
@@ -52,6 +53,7 @@ class LeftNavColumn extends React.Component {
         { this.renderMeetingsButton() } 
         <span className="match-conversations-text">Match Queue / Conversations:</span>
         <ConnectionList connections={ matchedUsers } />
+        <ConversationList />
       </div>
     );
   }
