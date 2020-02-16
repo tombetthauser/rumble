@@ -1,7 +1,7 @@
 import React from "react";
 import EncountersUser from "./encounters_user/encounters_user_container";
 import ContentHeader from "./content_header/content_header_container";
-import EditProfile from "./edit_profile/edit_profile_container";
+import EditProfileContainer from "../../profile/edit-profile-container";
 import { Switch, Route } from "react-router-dom";
 import "./page_content.css";
 
@@ -22,7 +22,7 @@ const ConversationShow = () => (
 const EditProfileComponent = () => (
   <div className="encounters">
     <ContentHeader headerText={"profile"}/>
-    <EditProfile />
+    <EditProfileContainer />
   </div>
 )
 
