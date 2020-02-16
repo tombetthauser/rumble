@@ -1,0 +1,95 @@
+.main-page-float-div p {
+  color: #333;
+  font-size: 14px;
+  font-weight: 50;
+  line-height: 17px;
+}
+
+.main-page-div {
+  background-image: url(https://www.thedelite.com/wp-content/uploads/2019/05/GettyImages-93358402-e1562954184459.jpg);
+  background-position: center;
+  justify-content: center;
+  background-size: cover;
+  align-items: center;
+  position: absolute;
+  min-height: 340px;
+  min-width: 690px;
+  display: flex;
+  bottom: 60px;
+  width: 100%;
+  top: 60px;
+}
+
+.main-page-float-div {
+  background-color: rgba(255, 255, 255, .9);
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  padding: 25px 50px;
+  display: flex;
+  height: 160px;
+  width: 475px;
+}
+
+.main-page-float-div h1 {
+  color: #333;
+  margin-bottom: 20px;
+  letter-spacing: -.75px;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.main-page-buttons-div {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.main-page-button-login {
+  display: inline-block;
+  background-color: rgb(255, 196, 0);
+  border: 2px solid rgb(255, 196, 0);
+  color: #fff;
+  width: 150px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.main-page-button-demo {
+  display: inline-block;
+  background-color: #fff;
+  border: 2px solid rgb(255, 196, 0);
+  color: rgb(255, 196, 0);
+  width: 150px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.main-page-button-login:hover {
+  background-color: #444 ;
+  border: 2px solid #444 ;
+  color: #fff;
+  transition: .2s;
+}
+
+.main-page-button-demo:hover {
+  background-color: #444 ;
+  border: 2px solid #444 ;
+  color: #fff;
+  transition: .2s;
+}
+
+.footer-text {
+  font-size: 12px;
+  position: absolute;
+  bottom: -35px;
+  text-align: center;
+  color: #ccc;
+}

@@ -21,7 +21,7 @@ class EncountersUser extends React.Component {
           <span><span className="bold-text about-text">about: </span>"{currentUser.about}"</span>
         </div>
         <div className="encounters-user-buttons-div">
-          <button>✋</button>
+          <button>✌️</button>
           <button>👊</button>
         </div>
       </div>

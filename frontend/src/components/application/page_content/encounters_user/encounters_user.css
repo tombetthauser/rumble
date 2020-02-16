@@ -18,55 +18,54 @@ span span.bold-text {
 }
 
 .encounters-user-buttons-div {
+  justify-content: space-around;
   position: absolute;
-  bottom: -50px;
-  width: 55%;
   margin-bottom: 3%;
   display: flex;
-  justify-content: space-around;
+  bottom: -50px;
+  width: 55%;
 }
 
 .encounters-user {
   background-color: rgb(255, 196, 0);
-  width: 80%;
-  max-width: 690pxf;
-  margin: 5% auto;
-  display: block;
   border-radius: 15px;
   position: relative;
+  max-width: 690px;
+  margin: 5% auto;
+  display: block;
+  width: 80%;
 }
 
 .encounters-user-left {
   background-image: url("https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8");
-  background-size: cover;
-  background-position: center;
   border-radius: 15px 0px 0px 15px;
-  width: 55%;
+  background-position: center;
+  background-size: cover;
   padding-top: 70%;
+  width: 55%;
 }
 
 .encounters-user-text {
-  /* background-color: pink; */
   background-color: rgb(255, 196, 0);
-  line-height: 20px;
-  position: absolute;
-  top: 32.5%;
-  left: 57.5%;
-  font-size: 14px;
-  width: 40%;
   white-space: normal;
+  position: absolute;
+  line-height: 20px;
+  font-size: 14px;
+  left: 57.5%;
+  top: 32.5%;
+  width: 40%;
 }
 
 .encounters-user button {
-  opacity: 1;
-  background-color: #fff;
-  border: 5px solid rgb(255, 196, 0);
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  font-size: 40px;
-  padding-top: 7px;
-  margin: 0;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  border: 5px solid rgb(255, 196, 0);
+  background-color: #fff;
+  border-radius: 50%;
+  padding-top: 7px;
   transition: .2s;
+  font-size: 40px;
+  height: 70px;
+  width: 70px;
+  opacity: 1;
+  margin: 0;
 }
