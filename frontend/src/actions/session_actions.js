@@ -30,13 +30,8 @@ export const logoutUser = () => ({
 });
 
 
-<<<<<<< HEAD
-export const update = user => dispatch =>{
-  return APIUtil.update(user).then((user)=> dispatch(receiveCurrentUser(user)), 
-=======
 export const update = (user, userId) => dispatch =>{
   return APIUtil.update(user, userId).then((user)=> dispatch(receiveCurrentUser(user)), 
->>>>>>> master
   err => dispatch(receiveErrors(err.response.data)))
 }
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
