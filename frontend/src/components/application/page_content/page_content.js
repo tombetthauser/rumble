@@ -1,6 +1,7 @@
 import React from "react";
 import EncountersUser from "./encounters_user/encounters_user_container";
 import ContentHeader from "./content_header/content_header_container";
+import EditProfileContainer from "../../profile/edit-profile-container";
 import { Switch, Route } from "react-router-dom";
 import ConversationShow from "../../chat/conversation_show";
 import "./page_content.css";
@@ -22,7 +23,7 @@ const ConversationView = () => (
 const EditProfileComponent = () => (
   <div className="encounters">
     <ContentHeader headerText={"profile"}/>
-    {/* <EncountersUser /> */}
+    <EditProfileContainer />
   </div>
 )
 
@@ -39,7 +40,6 @@ class PageContent extends React.Component {
           <Route exact path="/app/edit-profile" component={EditProfileComponent} />
           <Route exact path="/app" component={EncountersComponent} />
         </Switch>
-
       </div>
     );
   }
