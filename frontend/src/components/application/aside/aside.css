@@ -1,47 +1,48 @@
-/* .aside-div {
-  border: 2px solid lightpink;
-  font-size: 12px;
-  color: lightpink;
-} */
-
-button {
-  opacity: .2;
-  margin-left: 15px;
-  transition: .2s;
-}
-
-button:hover {
-  opacity: 1;
-  transition: .2s;
-}
-
-/* ABOVE CLASSES IS FOR DEVELOPMENT ONLY */
-
-.aside-div {
-  width: 275px;
-  flex-shrink: 0;
-  border-right: 1px solid lightgrey;
-}
-
-.aside-match-link-div {
-  height: 73px;
-  display: flex;
-  align-items: center;
-}
-
 .aside-match-link-div span, .aside-match-link-div div {
   cursor: pointer;
 }
 
-.aside-match-link-image {
-  margin-left: 12px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+.aside-match-link-div {
+  height: 73px;
+}
+
+.aside-div {
+  flex-shrink: 0;
+  width: 275px;
 }
 
 .aside-match-link-text {
   margin-left: 10px;
+  margin-top: 20px;
+}
+
+.aside-match-link-container {
+  align-content: center;
+  padding: 12px 0;
+  display: flex;
+}
+
+.aside-match-link-image {
+  border: 3px solid rgb(255, 196, 0);
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 12px;
+  transition: .2s;
+  height: 44px;
+  width: 44px;
+}
+
+.to-connections-button {
+  background-color: rgba(255, 196, 0, 0.2);
+  letter-spacing: .5px;
+  align-items: center;
+  padding-left: 15px;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  color: #555;
+  height: 45px;
 }
