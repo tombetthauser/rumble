@@ -2,6 +2,7 @@ import React from "react";
 import EncountersUser from "./encounters_user/encounters_user_container";
 import ContentHeader from "./content_header/content_header_container";
 import { Switch, Route } from "react-router-dom";
+import ConversationShow from "../../chat/conversation_show";
 import "./page_content.css";
 
 const EncountersComponent = () => (
@@ -11,10 +12,10 @@ const EncountersComponent = () => (
   </div>
 )
 
-const ConversationShow = () => (
+const ConversationView = () => (
   <div className="encounters">
     <ContentHeader headerText={"chat"}/>
-    {/* <EncountersUser /> */}
+    <ConversationShow />
   </div>
 )
 
@@ -34,7 +35,7 @@ class PageContent extends React.Component {
     return (
       <div className="page-content-div" title="application > page_content > page_content.js">
         <Switch>
-          <Route exact path="/app/connections" component={ConversationShow} />
+          <Route exact path="/app/connections" component={ConversationView} />
           <Route exact path="/app/edit-profile" component={EditProfileComponent} />
           <Route exact path="/app" component={EncountersComponent} />
         </Switch>
