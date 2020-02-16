@@ -56,6 +56,10 @@ span span.bold-text {
   width: 40%;
 }
 
+.encounters-user button:focus {
+  outline: 0;
+}
+
 .encounters-user button {
   box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
   border: 5px solid rgb(255, 196, 0);
@@ -71,8 +75,8 @@ span span.bold-text {
 }
 
 .match-conversations-text {
-  display: inline-block;
   margin: 15px 0px 5px 15px;
+  display: inline-block;
   font-size: 12px;
   color: #333;
   height: 15px;
