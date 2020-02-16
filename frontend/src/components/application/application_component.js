@@ -16,7 +16,6 @@ class ApplicationComponent extends React.Component {
         <Aside />
         <PageContent />
         <ProfileEntry />
-        {/* <Route path="/app/connections" component={ProfileEntry} /> */}
       </div>
     );
   }

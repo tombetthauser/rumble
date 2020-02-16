@@ -56,6 +56,10 @@ span span.bold-text {
   width: 40%;
 }
 
+.encounters-user button:focus {
+  outline: 0;
+}
+
 .encounters-user button {
   box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
   border: 5px solid rgb(255, 196, 0);
@@ -71,9 +75,66 @@ span span.bold-text {
 }
 
 .match-conversations-text {
-  display: inline-block;
   margin: 15px 0px 5px 15px;
+  display: inline-block;
   font-size: 12px;
   color: #333;
   height: 15px;
+}
+
+.button-hover-text-div {
+  font-family: 'Rock Salt';
+  justify-content: center;
+  align-content: center;
+  letter-spacing: 1px;
+  position: absolute;
+  font-weight: 600;
+  font-size: 20px;
+  display: flex;
+  height: 12.5%;
+  color: #fff;
+  width: 45%;
+  bottom: 0;
+  left: 55%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* .encounters-user-text span {color: red;} */
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  /* .encounters-user-text span {color: green;} */
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  /* .encounters-user-text span {color: blue;} */
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .encounters-user-text span {font-size: 18px; line-height: 22.5px;}
+  .button-hover-text-div {font-size: 25px;}
+  .encounters-user button {
+    border: 5px solid rgb(255, 196, 0);
+    padding-top: 9px;
+    font-size: 45px;
+    height: 80px;
+    width: 80px;
+  }
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .encounters-user-text span {font-size: 20px; line-height: 25px;}
+  .button-hover-text-div {font-size: 25px;}
+  .encounters-user button {
+    border: 5px solid rgb(255, 196, 0);
+    padding-top: 10px;
+    font-size: 50px;
+    height: 90px;
+    width: 90px;
+  }
 }

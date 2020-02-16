@@ -1,0 +1,20 @@
+.edit-profile-logout {
+  color: gray;
+  background-color: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.edit-profile-logout:hover {
+  color: rgb(255, 196, 0);
+  transition: .2s;
+}
+
+.edit-profile-logout:focus {
+  outline: 0;
+}
