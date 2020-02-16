@@ -9,6 +9,7 @@ import EditFormContainer from "./profile/edit-profile-container";
 import UserProfileContainer from "./profile/user-profile-container";
 import ApplicationComponent from "./application/application_component";
 import MeetingsContainer from "./meetings/meetings-container";
+import ConversationShow from "./chat/conversation_show";
 
 const App = () => (
   <div>
