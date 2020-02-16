@@ -31,5 +31,5 @@ span span.bold-text {
   overflow: hidden;
   transition: .5s;
   flex-shrink: 0;
-  width: 300px;
+  /* width: 300px; */
 }
