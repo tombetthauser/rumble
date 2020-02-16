@@ -20,7 +20,9 @@ const configureChat = (io) => {
       // notify all participants but the author
       otherParticipants = participants.filter(p => p !== message.author._id)
       otherParticipants.forEach(participant => {
-        userLookup[participant].emit('receive_message', message);
+        if (userLookup[participant]) {
+          userLookup[participant].emit('receive_message', message);
+        }
       });
     });
   });

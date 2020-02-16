@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchConversations, setCurrentConversation } from '../../actions/chat_actions';
 import ConversationListItem from './conversation_list_item';
+import DEVONLYCreateConversationForm from './create_conversation_form';
 
 class ConversationList extends React.Component {
   componentDidMount() {
@@ -31,6 +32,7 @@ class ConversationList extends React.Component {
     return (
       <div>
         <h2>Conversations</h2>
+        <DEVONLYCreateConversationForm />
         <ul>{ this.renderConversations() }</ul>
       </div>
     );
@@ -44,7 +46,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
   fetchConversations: () => dispatch(fetchConversations()),
-  setCurrentConversation: conversationId => dispatch(setCurrentConversation(conversationId))
+  setCurrentConversation: conversationId => dispatch(setCurrentConversation(conversationId)),
 });
 
 export default connect(mSTP, mDTP)(ConversationList);

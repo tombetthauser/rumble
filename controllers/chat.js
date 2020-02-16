@@ -70,18 +70,35 @@ exports.getConversation = function(req, res) {
 
 // create a new conversation
 exports.newConversation = function(req, res) {
-	if (!req.body.recipientId) {
+	
+	if (!req.body.username) {
 		return res.status(422).json({ error: "Please provide a recipient" });
 	}
 
-  const conversation = new Conversation({
-    participants: [req.user._id, req.body.recipientId]
-  });
-
-  conversation.save(function(err, conversation) {
+	User.findOne({ username: req.body.username}).exec((err, recipient) => {
 		if (err) throw err;
-		return res.status(200).json({ conversation });
-  });
+
+		if (recipient) {
+			const conversation = new Conversation({
+				participants: [req.user._id, recipient._id]
+			});
+
+			conversation.save(function (err, newConversation) {
+				if (err) throw err;
+				Conversation.findOne({ _id: newConversation._id })
+				.populate({
+					path: 'participants',
+					select: 'username'
+				})
+				.exec((err, conversation) => {
+					if (err) throw err;
+					return res.status(200).json({ conversation: newConversation });
+				});
+			});
+		} else {
+			return res.status(404).json({ error: 'invalid recipient' });
+		}
+	})
 };
 
 // send a message
