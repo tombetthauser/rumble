@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import EditForm from './edit-profile';
-import {update} from '../../../../actions/session_actions';
+import { update, logout } from '../../../../actions/session_actions';
 
 
 const mSTP = (state) =>({
@@ -9,6 +9,7 @@ const mSTP = (state) =>({
 
 const mDTP = (dispatch) =>({
   update: (user, userId) => dispatch(update(user, userId)),
+  logout: () => dispatch(logout())
   //receiveCurrentUser: (userId) => dispatch(receiveCurrentUser(userId))
 })
 export default connect(mSTP , mDTP)(EditForm)

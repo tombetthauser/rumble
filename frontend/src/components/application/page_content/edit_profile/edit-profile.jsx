@@ -1,6 +1,7 @@
 import React from "react";
 import "./edit-profile.css";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 
 class EditForm extends React.Component {
@@ -85,7 +86,7 @@ class EditForm extends React.Component {
       <div className="edit-profile-column" >
         <div className="edit-profile-header-div">
           <div>Welcome back <span className="edit-profile-header-username" >{ this.props.user.username }</span>!</div>
-          <button className="edit-profile-header-logout">logout</button>
+          <Link to="/"><button className="edit-profile-header-logout" onClick={this.props.logout} >logout</button></Link>
         </div>
         <div className="edit-profile-img-wrapper">{ this.showProfilePicture() }</div>
         <div className="edit-profile-change-img-div">

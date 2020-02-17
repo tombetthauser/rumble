@@ -179,3 +179,11 @@
   color: white;
   transition: .2s;
 }
+
+.edit-profile-submit-left:focus {
+  outline: 0;
+}
+
+.edit-profile-submit-right:focus {
+  outline: 0;
+}
