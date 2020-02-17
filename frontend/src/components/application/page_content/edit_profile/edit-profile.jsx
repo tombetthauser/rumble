@@ -1,8 +1,6 @@
+import { Link } from "react-router-dom"
 import React from "react";
 import "./edit-profile.css";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom"
-
 
 class EditForm extends React.Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import "./aside.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import SidebarProfile from "./sidebar_profile/sidebar_profile";
+import SidebarProfile from "./sidebar_profile/sidebar_profile_container";
 import ConversationList from "../../chat/conversation_list";
 
 const BackToMeetings = () => (
