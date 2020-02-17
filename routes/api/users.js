@@ -71,7 +71,8 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         let biography = user.biography ? user.biography : ""
         let profile_url = user.profile_url ? user.profile_url: "";
-        const payload = { _id: user._id, username: user.username, biography, profile_url};
+        let liked_users = user.liked_users ? user.liked_users: [];
+        const payload = { _id: user._id, username: user.username, biography, profile_url, liked_users};
         
 
         jwt.sign( //incrypts the payload and sets it as a header 
@@ -147,12 +148,6 @@ router.patch('/:userId', upload.single("file"), (req,res) =>{
     User.findOneAndUpdate(filter, update, {new: true}).then((user) => {
       res.json(user)})
     .catch(err => console.log(err))
-    
-    console.log(req.body);
-
-    User.findOneAndUpdate(filter, update, {new: true}).then((user) => { 
-      res.json(user)})
-    .catch(err => console.log(err)) 
   }else{
   //if (req.file){ 
     const file = req.file;
@@ -202,7 +197,6 @@ router.patch('/:userId', upload.single("file"), (req,res) =>{
        }
     });
   }
- // }
 })
 
 module.exports = router;
