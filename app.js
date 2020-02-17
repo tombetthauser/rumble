@@ -11,6 +11,7 @@ const passport = require('passport');
 require("./models/User");
 const users = require("./routes/api/users");
 const chatRoutes = require("./routes/api/chat");
+const matchRoutes = require("./routes/api/matches");
 const configureChat = require("./config/configureChat");
 const app = express();
 app.use(cors());
@@ -18,7 +19,7 @@ app.use(cors());
 //config.connectDB();
 
 mongoose
-.connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
+.connect(db, { useUnifiedTopology: false, useNewUrlParser: true })
 .then(() => {console.log('connected to mongo')})
 .catch((err) => {console.log(err)})
 
@@ -36,6 +37,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 app.use('/api/users', users);
 app.use('/api/chat', chatRoutes);
+app.use('/api/matches', matchRoutes);
 
 app.get('/', (req, res) => {
   res.send("Backend running");
