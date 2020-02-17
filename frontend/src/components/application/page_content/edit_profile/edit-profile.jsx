@@ -70,14 +70,10 @@ class EditForm extends React.Component {
 
   showProfilePicture() {
     if (!this.props.user.profile_url) {
-      return <div className="default-profile-pic"></div>;
-    } else {
-      return (
-        <div >
-          <img className="edit-profile-img" style={{ backgroundImage: `url("${this.props.user.profile_url}")` }}></img>
-        </div>
-      );
-    }
+      return (<div className="default-profile-pic"></div>);
+    } else { return (<div>
+        <img className="edit-profile-img" style={{ backgroundImage: `url("${this.props.user.profile_url}")` }}></img>
+    </div>)}
   }
 
   render() {
@@ -88,21 +84,28 @@ class EditForm extends React.Component {
     <div className="edit-profile-container" >
       <div className="edit-profile-column" >
         <div className="edit-profile-header-div">
-          <div>
-            Welcome back <span className="edit-profile-header-username" >{ this.props.user.username }</span>!
-          </div>
+          <div>Welcome back <span className="edit-profile-header-username" >{ this.props.user.username }</span>!</div>
           <button className="edit-profile-header-logout">logout</button>
         </div>
-        { this.showProfilePicture() }
-        <label>Username
-          <input type="text" value={this.state.username} onChange={this.handleInput("username")} />
-        </label>
-        <label>Bio
-          <textarea type="text" value={this.state.biography} onChange={this.handleInput("biography")} />
-        </label>
-        <input className="" type="file" onChange={this.handleFile} />
-        <button onClick={this.handlePhotoSubmit}>Submit</button>
-        <button onClick={this.handleUserInformationSubmit}>Change Profile Info</button>
+        <div className="edit-profile-img-wrapper">{ this.showProfilePicture() }</div>
+        <div className="edit-profile-change-img-div">
+          <div className="edit-profile-img-text">Change profile image?</div>
+          <input className="edit-profile-img-button" type="file" onChange={this.handleFile} />
+        </div>
+        <div className="edit-profile-input-wrapper">
+          <label>
+            <span className="edit-profile-username-text">Change Username?</span>
+            <input className="edit-profile-username-input" type="text" value={this.state.username} onChange={this.handleInput("username")} />
+          </label>
+          <label>
+            <span className="edit-profile-about-text">Change About Statement?</span>
+            <textarea className="edit-profile-username-input" type="text" value={this.state.biography} onChange={this.handleInput("biography")} />
+          </label>
+        </div>
+        <div className="edit-profile-">
+          <button className="edit-profile-submit-left" onClick={this.handlePhotoSubmit}>Submit</button>
+          <button className="edit-profile-submit-right" onClick={this.handleUserInformationSubmit}>Change Profile Info</button>
+        </div>
       </div>
     </div>
     );
