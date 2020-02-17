@@ -3,6 +3,9 @@ import {
   RECEIVE_CONVERSATION,
   SET_CURRENT_CONVERSATION,
 } from '../actions/chat_actions';
+import {
+  RECEIVE_MATCH_OR_LIKE,
+} from '../actions/match_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -18,7 +21,12 @@ const chatReducer = (state = defaultState, action) => {
     case RECEIVE_CONVERSATIONS:
       return Object.assign({}, state, { conversations: action.payload.conversations });
     case RECEIVE_CONVERSATION:
-      return merge({}, state, { conversations: { [action.payload.conversation._id]: action.payload.conversation } });
+    case RECEIVE_MATCH_OR_LIKE:
+      if (action.payload.conversation) {
+        return merge({}, state, { conversations: { [action.payload.conversation._id]: action.payload.conversation } });
+      } else {
+        return state;
+      }
     default:
       return state;
   }
