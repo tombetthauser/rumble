@@ -15,9 +15,17 @@ exports.matchOrLike = function (req, res) {
         if (err) throw err;
         console.log('matchOrLike hit');
         if (otherUser && otherUser.liked_users.includes(currentUserId)) {
-            let newConvo = new Conversation({ participants: [currentUserId, otherUserId] });
-            newConvo.save((err, savedConvo) => {
-                return res.status(200).json({ conversation: savedConvo });
+            Conversation.find({ participants: [currentUserId, otherUserId] }).exec((err, foundConversation) => {
+                if (err) throw err;
+                if (!foundConversation) {
+                    let newConvo = new Conversation({ participants: [currentUserId, otherUserId] });
+                    newConvo.save((err, savedConvo) => {
+                        return res.status(200).json({ conversation: savedConvo });
+                    });
+                } else {
+                    // only if we see a person again
+                    return res.status(200).json({});
+                }
             });
         } else {
             // const currentUser = Object.assign({}, req.user);

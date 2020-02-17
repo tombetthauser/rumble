@@ -48,11 +48,14 @@ class EncountersUser extends React.Component {
   }
 
   fetchAllUsers() {
+    // get all users passed from props,
+    // then copy it to 
     let allUsers = [];
     this.props.users.forEach(user => {
       allUsers.push(user);
     });
     return allUsers;
+    // return Obje
   }
 
   handleReceiveOneUser(e) {

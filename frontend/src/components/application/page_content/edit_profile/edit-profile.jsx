@@ -102,8 +102,8 @@ class EditForm extends React.Component {
           </label>
         </div>
         <div className="edit-profile-">
-          <button className="edit-profile-submit-left" onClick={this.handlePhotoSubmit}>Submit</button>
-          <button className="edit-profile-submit-right" onClick={this.handleUserInformationSubmit}>Change Profile Info</button>
+          <button className="edit-profile-submit-left" onClick={this.handlePhotoSubmit}>Submit Image</button>
+          <button className="edit-profile-submit-right" onClick={this.handleUserInformationSubmit}>Submit Profile Info</button>
         </div>
       </div>
     </div>
