@@ -58,7 +58,6 @@ class EncountersUser extends React.Component {
     }
 
   handleLikeClick(e) {
-    alert("Like clicked!");
     this.handleReceiveOneUser(e);
     this.props.matchOrLike(this.state.singleUser._id);
   }
@@ -91,8 +90,13 @@ class EncountersUser extends React.Component {
       location: "Augusta, GA",
       age: "66",
       biography:
-        "Looking for friendship, fun and a few fights to stay young at heart."
+        "Looking for friendship, fun and a few fights to stay young at heart.",
+      imgUrl: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"
     };
+    
+    // console.log("~~~~~~~~~~~~~~~~~")
+    // console.log(currentUser)
+    // console.log("~~~~~~~~~~~~~~~~~")
 
     return (
  
@@ -101,7 +105,7 @@ class EncountersUser extends React.Component {
           className="encounters-user"
           title="application > page_content > encounters_user.js"
         >
-          <div className="encounters-user-left"></div>
+          <div style={{ backgroundImage: `url("${ currentUser.imgUrl ? currentUser.imgUrl : null })` }} className="encounters-user-left"></div>
           <div className="encounters-user-text">
             <span>
               <span className="bold-text">id: </span>
