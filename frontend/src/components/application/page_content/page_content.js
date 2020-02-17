@@ -1,7 +1,7 @@
 import React from "react";
 import EncountersUser from "./encounters_user/encounters_user_container";
 import ContentHeader from "./content_header/content_header_container";
-import EditProfileContainer from "../../profile/edit-profile-container";
+import EditProfileContainer from "./edit_profile/edit-profile-container";
 import { Switch, Route } from "react-router-dom";
 import ConversationShow from "../../chat/conversation_show";
 import "./page_content.css";
