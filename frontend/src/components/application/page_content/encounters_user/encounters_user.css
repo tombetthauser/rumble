@@ -34,10 +34,11 @@ span span.bold-text {
   margin: 5% auto;
   display: block;
   width: 80%;
+  box-shadow: -3px 2px 10px rgba(0,0,0,0.05);
 }
 
 .encounters-user-left {
-  /* background-image: url("https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"); */
+  background-color: #ddd;
   border-radius: 15px 0px 0px 15px;
   background-position: center;
   background-size: cover;

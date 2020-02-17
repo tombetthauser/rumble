@@ -17,13 +17,16 @@ const DISLIKETEXT = [
   "No Way!"
 ];
 
+const DEFAULT_PROFILE_IMAGE = "https://images.squarespace-cdn.com/content/v1/5a4d3b6df6576ec202c69c73/1537897321377-8978TG2CQO210ZRXH8BH/ke17ZwdGBToddI8pDm48kJnELN9L4KlLfazVfQVCXZRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PInuZO37dzxXPJ-Pv709Qj3M8pQ9u6G9ve6GmdgInOFjkKMshLAGzx4R3EDFOm1kBS/profile-placeholder-image-gray-silhouette-no-vector-21542863.jpg";
+
 class EncountersUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       index: 0,
-      singleUser: "",
-      users_liked_users: null
+      singleUser: null,
+      users_liked_users: null,
+      allUsers: null
     };
     this.fetchAllUsers = this.fetchAllUsers.bind(this);
     this.handleReceiveOneUser = this.handleReceiveOneUser.bind(this);
@@ -39,6 +42,9 @@ class EncountersUser extends React.Component {
     if (this.props.user) {
       this.setState({ users_liked_users: this.props.user.liked_users });
     }
+    this.state.allUsers = ["cats"]
+    console.log("this.state.allUsers ~~~~~~~~~~~");
+    console.log(this.props);
   }
 
   fetchAllUsers() {
@@ -49,17 +55,27 @@ class EncountersUser extends React.Component {
     return allUsers;
   }
 
-    handleReceiveOneUser(e) {
-      e.preventDefault();
-      this.setState({
-        index: this.state.index + 1,
-        singleUser: this.fetchAllUsers()[this.state.index]
-      });
-    }
+  handleReceiveOneUser(e) {
+    e.preventDefault();
+    // console.log("this.state.index ~~~~~~~~~~~");
+    // console.log(this.state.index);
+    // console.log("this.state.singleUser ~~~~~~~~~~~");
+    // console.log(this.state.singleUser);
+    this.setState({
+      index: this.state.index + 1,
+      singleUser: this.fetchAllUsers()[this.state.index]
+    });
+  }
 
   handleLikeClick(e) {
-    this.handleReceiveOneUser(e);
-    this.props.matchOrLike(this.state.singleUser._id);
+    if (this.state.singleUser) {
+      console.log("this.state ~~~~~~~~~~~");
+      console.log(this.state);
+      this.handleReceiveOneUser(e);
+      this.props.matchOrLike(this.state.singleUser._id);
+    } else {
+      this.handleReceiveOneUser(e);
+    }
   }
 
   handleDislikeClick() {
@@ -91,12 +107,8 @@ class EncountersUser extends React.Component {
       age: "66",
       biography:
         "Looking for friendship, fun and a few fights to stay young at heart.",
-      imgUrl: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"
+      profile_url: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"
     };
-    
-    // console.log("~~~~~~~~~~~~~~~~~")
-    // console.log(currentUser)
-    // console.log("~~~~~~~~~~~~~~~~~")
 
     return (
  
@@ -105,7 +117,7 @@ class EncountersUser extends React.Component {
           className="encounters-user"
           title="application > page_content > encounters_user.js"
         >
-          <div style={{ backgroundImage: `url("${ currentUser.imgUrl ? currentUser.imgUrl : null })` }} className="encounters-user-left"></div>
+          <div style={{ backgroundImage: `url("${currentUser.profile_url ? currentUser.profile_url : DEFAULT_PROFILE_IMAGE }")` }} className="encounters-user-left"></div>
           <div className="encounters-user-text">
             <span>
               <span className="bold-text">id: </span>
