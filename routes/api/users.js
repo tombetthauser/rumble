@@ -133,7 +133,11 @@ router.post("/register", (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  User.find().then(users => { res.json(users) })
+  User.find().then(users => {
+    let formattedUsers = {};
+    users.forEach(user => formattedUsers[user._id] = user);
+    res.json(formattedUsers);
+  })
 })
 
 router.patch('/:userId', upload.single("file"), (req,res) =>{
