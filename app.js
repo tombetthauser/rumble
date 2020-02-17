@@ -23,15 +23,11 @@ mongoose
 .then(() => {console.log('connected to mongo')})
 .catch((err) => {console.log(err)})
 
-
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "build")));
 
 //app.use("/api/document", fileUploadRoutes);
-
-
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
@@ -42,7 +38,6 @@ app.use('/api/matches', matchRoutes);
 app.get('/', (req, res) => {
   res.send("Backend running");
 })
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

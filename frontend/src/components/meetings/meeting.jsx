@@ -11,9 +11,11 @@ class Meeting extends React.Component {
    this.fetchAllUsers = this.fetchAllUsers.bind(this);
    this.handleReceiveOneUser = this.handleReceiveOneUser.bind(this);
   }
+
   componentDidMount(){
     this.props.fetchUsers();
   }
+
   fetchAllUsers(){
     let allUsers = [];
     this.props.users.forEach((user) => { allUsers.push(user)});
@@ -22,7 +24,8 @@ class Meeting extends React.Component {
 
   handleReceiveOneUser(e){
     e.preventDefault();
-    this.setState({index: this.state.index + 1, singleUser: this.fetchAllUsers()[this.state.index]});
+    let currentlyDisplayedUser = this.fetchAllUsers()[this.state.index];
+    this.setState({index: this.state.index + 1, singleUser: currentlyDisplayedUser});
   }
 
   render(){
