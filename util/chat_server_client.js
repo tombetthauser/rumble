@@ -1,8 +1,9 @@
 const socketIOClient = require("socket.io-client");
 const Conversation = require('../models/chat/Conversation');
+const CHAT_SERVER_ENDPOINT = require("../config/keys").CHAT_SERVER_ENDPOINT;
 
 // to be set dynamically in production with process.env.CHAT_SERVER_URL
-const endpoint = "http://localhost:3000/";
+const endpoint = CHAT_SERVER_ENDPOINT;
 
 class ChatServerClient {
   constructor() {
