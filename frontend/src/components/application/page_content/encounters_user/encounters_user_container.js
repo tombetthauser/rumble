@@ -13,11 +13,12 @@ import { fetchUsers } from '../../../../actions/user_actions'
 //import Meeting from "./meeting";
 
 const mapStateToProps = state => ({
-  currentUser: state.session.user,
+  sessionUser: state.session,
   users: Object.values(state.users),
+  // currentUser: state.users[state.session.user._id],
   availableUsers: Object.values(state.users).filter(availableUser => {
     // debugger;
-    if (availableUser && state.session.user) {
+    if (availableUser && state.session.user && state.session.user.liked_users) {
       let sessionUser = state.session.user;
       let isNotMe = availableUser._id !== sessionUser._id;
       let alreadyLiked = sessionUser.liked_users.includes(availableUser._id)
