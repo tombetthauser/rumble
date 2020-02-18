@@ -28,16 +28,16 @@ class EncountersUser extends React.Component {
       users_liked_users: null,
       allUsers: null
     };
-    this.populateAllUsers = this.populateAllUsers.bind(this);
+    // this.populateAllUsers = this.populateAllUsers.bind(this);
     this.handleReceiveOneUser = this.handleReceiveOneUser.bind(this);
     this.handleLikeClick = this.handleLikeClick.bind(this);
   }
 
-  componentDidUpdate() {
-    if (!this.state.allUsers) {
-      this.populateAllUsers();
-    }
-  }
+  // componentDidUpdate() {
+  //   if (!this.state.allUsers) {
+  //     this.populateAllUsers();
+  //   }
+  // }
 
   componentDidMount() {
     this.props.fetchUsers();
@@ -71,22 +71,26 @@ class EncountersUser extends React.Component {
     return array;
   }
 
-  populateAllUsers() {
-    let populatedAllUsers = [];
+  // populateAllUsers() {
+  //   let populatedAllUsers = [];
+  //   let currentUser;
+  //   if (this.props.sessionUser) {
+  //     currentUser = this.props.users[this.props.sessionUser._id]
+  //   }
 
-    this.props.users.forEach(user => {
-      if ((!this.props.currentUser.liked_users.includes(user._id)) && (user._id !== this.props.currentUser._id)) {
-        populatedAllUsers.push(user)
-      };
-    });
-    this.setState({
-      allUsers: populatedAllUsers
-    });
-    // this.setState({
-    //   singleUser: this.state.allUsers[this.state.index]
-    // })
-    return this.shuffle(populatedAllUsers);
-  };
+  //   this.props.users.forEach(user => {
+  //     if (currentUser && (!currentUser.liked_users.includes(user._id)) && (user._id !== currentUser._id)) {
+  //       populatedAllUsers.push(user)
+  //     };
+  //   });
+  //   this.setState({
+  //     allUsers: populatedAllUsers
+  //   });
+  //   // this.setState({
+  //   //   singleUser: this.state.allUsers[this.state.index]
+  //   // })
+  //   return this.shuffle(populatedAllUsers);
+  // };
 
   
 
@@ -95,19 +99,23 @@ class EncountersUser extends React.Component {
     this.setState({ index: this.state.index + 1 });
   }
 
-  handleLikeClick(e) {
-    if (this.state.singleUser) {
-      // console.log("this.state ~~~~~~~~~~~");
-      // console.log(this.state);
-      this.handleReceiveOneUser(e);
-      this.props.matchOrLike(this.state.singleUser._id);
-    } else {
-      this.handleReceiveOneUser(e);
+  handleLikeClick(userId) {
+    return (e) => {
+    // if (this.state.singleUser) {
+    //   // console.log("this.state ~~~~~~~~~~~");
+    //   // console.log(this.state);
+    // this.props.matchOrLike(this.state.singleUser._id);
+    this.props.matchOrLike(userId);
+    this.handleReceiveOneUser(e);
+    // } else {
+    //   this.handleReceiveOneUser(e);
+    // }
     }
   }
 
-  handleDislikeClick() {
-    alert("Dislike clicked!");
+  handleDislikeClick(e) {
+    // alert("Dislike clicked!");
+    // this.handleReceiveOneUser(e);
   }
 
   handleLikeHover() {
@@ -142,7 +150,7 @@ class EncountersUser extends React.Component {
     const { availableUsers } = this.props;
     const { index } = this.state;
     if (availableUsers && availableUsers.length > 0) {
-      let currentUser = this.shuffle(availableUsers)[index];
+      let currentUser = availableUsers[index];
       // debugger;
       return (
         <div>
@@ -189,7 +197,7 @@ class EncountersUser extends React.Component {
               <button
                 onMouseOver={this.handleLikeHover}
                 onMouseLeave={this.handleButtonMouseOff}
-                onClick={this.handleLikeClick}
+                onClick={this.handleLikeClick(currentUser._id)}
               >
                 👊
               </button>
