@@ -52,7 +52,7 @@ class LeftNavColumn extends React.Component {
         <SidebarProfile />
         { this.renderMeetingsButton() } 
         <span className="match-conversations-text">Match Queue / Conversations:</span>
-        <ConnectionList connections={ matchedUsers } />
+        {/* <ConnectionList connections={ matchedUsers } /> */}
         <ConversationList />
       </div>
     );

@@ -42,9 +42,35 @@ router.get(
   }
 );
 
-
-
-
+router.get("/seed", (req, res) => {
+  console.log("test")
+  // create some events
+  const users = [
+    { username: 'Dwayne', email: "mail@mail.com", biography: 'Remember when the whole world could smell what The Rock was cooking?', password: "password", password2: "password", profile_url: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Dwayne_Johnson_2%2C_2013.jpg"},
+    { username: 'Chyna', email: "mail@mail.com", biography: 'University of Tampa grad looking to make new arm wrestling friends.', password: "password", password2: "password", profile_url: "https://thenypost.files.wordpress.com/2019/08/chyna_getty.gif"},
+    { username: 'Randy', email: "mail@mail.com", biography: 'This Macho Man still has a lifetime supply of slim jims to share with new friends.', password: "password", password2: "password", profile_url: "https://d2mjvz2lqjkhe7.cloudfront.net/as/assets-mem-com/cmi/7/9/0/1/4681097/20110525_084911_e_orig.jpg/-/randy-poffo-largo-fl-obituary.jpg"},
+    { username: 'Steve', email: "mail@mail.com", biography: 'Even when your stone cold its easy to get lonely as we grow old.', password: "password", password2: "password", profile_url: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Steve_Austin_by_Gage_Skidmore.jpg"},
+    { username: 'Terry', email: "mail@mail.com", biography: 'Looking for new friends, fun and an a occaisional match to stay young at heart.', password: "password", password2: "password", profile_url: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"},
+    { username: 'Paul', email: "mail@mail.com", biography: 'Big Show has a big heart and a big friend zone where all are welcome.', password: "password", password2: "password", profile_url: "https://m.media-amazon.com/images/M/MV5BMTQ5NjE1OTY4NF5BMl5BanBnXkFtZTcwMjUxMDMxNw@@._V1_.jpg"},
+    { username: 'Mick', email: "mail@mail.com", biography: 'If God built me a ladder to heaven, I would climb it and elbow drop the world.', password: "password", password2: "password", profile_url: "https://arc-anglerfish-arc2-prod-advancelocal.s3.amazonaws.com/public/TTKV7AUOG5EJRGFUA6TX2I5JU4.jpg"},
+  ];
+  // use the Event model to insert/save
+  User.deleteMany({}, () => {
+    users.forEach(user => {
+      let newUser = new User(user) 
+      
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err;
+          newUser.password = hash;
+          newUser.save()
+        });
+      });
+    })
+    // seeded!
+    return res.send('Database seeded!');
+  });
+})
 
 router.post("/login", (req, res) => {
   console.log("login triggered");
@@ -202,5 +228,15 @@ router.patch('/:userId', upload.single("file"), (req,res) =>{
     });
   }
 })
+
+
+router.delete("/:userId", (req, res) => {
+  User.deleteOne({ _id: req.params.userId }, function (err) {
+    console.log(userId);
+    if (err) return handleError(err);
+    return res.status(200).json({});
+  });
+  return res.status(404).json({ msg: 'no user to delete' });
+});
 
 module.exports = router;

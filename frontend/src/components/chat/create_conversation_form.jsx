@@ -1,3 +1,4 @@
+import './conversations.css'
 import React from 'react';
 import { connect } from 'react-redux';
 import { _createConversation } from '../../actions/chat_actions';
@@ -25,7 +26,7 @@ class CreateConversationForm extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input placeholder="username" value={this.state.username} onChange={this.update('username')} />
+                    <input className="conversations-new-form" placeholder="start a new conversation..." value={this.state.username} onChange={this.update('username')} />
                 </form>
             </div>
         )

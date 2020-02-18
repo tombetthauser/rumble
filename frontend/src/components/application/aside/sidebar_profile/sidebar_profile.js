@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "./sidebar_profile.css";
 import React from "react";
 
+const DEFAULT_IMAGE = "https://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png";
+
 class SidebarProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +13,7 @@ class SidebarProfile extends React.Component {
     if (!this.props.user) {
       return (<div className="sidebar-profile-img" style={{ backgroundImage: `url("https://gossipgist.com/uploads/15954/macho-man.png")` }}></div>)
     } else { 
-      return (<div className="sidebar-profile-img" style={{ backgroundImage: `url("${this.props.user.profile_url}")` }}></div>)
+      return (<div className="sidebar-profile-img" style={{ backgroundImage: `url("${this.props.user.profile_url ? this.props.user.profile_url : DEFAULT_IMAGE}")` }}></div>)
     }
   }
 

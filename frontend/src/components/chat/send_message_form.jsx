@@ -1,3 +1,4 @@
+import './conversations.css'
 import React from 'react';
 
 class SendMessageForm extends React.Component {
@@ -26,7 +27,8 @@ class SendMessageForm extends React.Component {
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit}>
-				<input value={this.state.message} onChange={this.update('message')} />
+				<input className="new-message-input" value={this.state.message} onChange={this.update('message')} />
+				<input className="message-input-submit" type="submit" value="↑" />
 			</form>
 		);
 	}

@@ -1,9 +1,10 @@
+import './conversations.css'
 import React from 'react';
 
 // import { getOtherUsername } from '../../util/chat_api_util';
 
 const renderMessages = messages => (
-  messages.map((message, i) => <li key={i}>{message.author.username}: {message.body}</li>)
+  messages.map((message, i) => <li className="individual-message" key={i}>{message.author.username}: {message.body}</li>)
 )
 
 const MessageList = ({ user, conversation, messages, allUsers }) => {
@@ -19,7 +20,7 @@ const MessageList = ({ user, conversation, messages, allUsers }) => {
       </div>
     );
   } else {
-    return <p>No messages between you and {otherPerson.username}</p>;
+    return <p className="messages-get-started-text" >Send {otherPerson.username} a Message!</p>;
   }
 }
 

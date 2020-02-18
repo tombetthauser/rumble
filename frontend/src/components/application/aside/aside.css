@@ -24,6 +24,7 @@
 
 .aside-match-link-image {
   border: 3px solid rgb(255, 196, 0);
+  background-color: #eee;
   background-position: center;
   background-size: cover;
   display: inline-block;

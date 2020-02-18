@@ -1,0 +1,113 @@
+* {
+  /* background-color: pink; */
+}
+
+.conversations-none-yet {
+  font-family: 'Rock Salt';
+  color: #ccc;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 15%;
+}
+
+.conversations-none-yet-sidebar {
+  font-family: 'Rock Salt';
+  color: #ccc;
+  font-size: 16px;
+  padding-top: 25%;
+  margin-left: 25px;
+}
+
+.conversation-show {
+  /* background-color: hotpink; */
+}
+
+.aside-match-link-image {
+  /* backgroundImage: url(); */
+}
+
+.conversations-new-form {
+  width: 215px;
+  display: block;
+  padding: 7.5px 14px;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  margin-top: 7.5px;
+  color: #666;
+}
+
+.conversations-new-form:focus {
+  outline: 0;
+}
+
+.message-list {
+}
+
+.individual-message {
+  background-color: rgb(255, 196, 0);
+  width: fit-content;
+  color: #fff;
+  padding: 12px 22px;
+  margin: 15px 25px;
+  border-radius: 25px;
+}
+
+.new-message-input {
+  border: 1px solid #ccc;
+  border-radius: 10px 0 0 10px;
+  /* padding: 12.5px 30px; */
+  height: 40px;
+  margin-top: 35px;
+  margin-left: 5%;
+  width: 75%;
+  transition: .2s;
+    font-size: 14px;
+    padding-left: 20px;
+}
+
+.new-message-input:focus {
+  outline: 0;
+  /* border: 1px solid rgb(255, 196, 0); */
+  transition: .2s;
+}
+
+.message-input-submit {
+  width: 60px;
+  border: 1px solid #ddd;
+  background-color: #ddd;
+  color: #fff;
+  border-radius: 0 10px 10px 0;
+  margin-top: 25px;
+  margin-left: 7.5px;
+  height: 45px;
+  left: 0;
+  font-size: 14px;
+  transition: .2s;
+  font-weight: 800;
+}
+
+.message-input-submit:focus {
+  outline: 0;
+}
+
+.message-input-submit:hover {
+  border: 1px solid #999;
+  background-color: #999;
+  transition: .2s;
+  cursor: pointer;
+}
+
+
+.messages-get-started-text {
+  font-family: 'Rock Salt';
+  color: #aaa;
+  margin: 15px 25px 10px;
+  text-align: center;
+}
+
+.message-list {
+  border-top: 1px solid #ddd;
+  padding-top: 25px;
+  margin-top: 5px;
+}
