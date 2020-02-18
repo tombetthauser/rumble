@@ -26,8 +26,13 @@ class ProfileEntry extends React.Component {
       otherPerson = allUsers[otherPersonId];
     }
 
+    console.log("otherPerson ------------------------")
+    console.log(otherPerson)
+
+    // encodeURI(otherPerson.profile_url)
+
     return (
-      <div className="profile-entry-div" style={{ width: width, backgroundImage: `url(${(currentConversation && allUsers) ? otherPerson.profile_url : DEFAULT_IMAGE })` }} >
+      <div className="profile-entry-div" style={{ width: width, backgroundImage: `url("${(otherPerson && otherPerson.profile_url) ? otherPerson.profile_url : DEFAULT_IMAGE }")` }} >
         <div className="profile-entry-text-div">
           <span><span className="bold-text">name: </span>{(currentConversation && allUsers) ? otherPerson.username : "???"}</span>
           <span className="profile-about-text" ><span className="bold-text">about: </span>{(currentConversation && allUsers) ? otherPerson.biography : "???"}</span>

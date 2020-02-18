@@ -9,6 +9,9 @@ import { createMessage, receiveMessage } from '../../actions/chat_actions';
 import { fetchUsers } from '../../actions/user_actions';
 // import { getOtherUsername } from '../../util/chat_api_util';
 
+const DEFAULT_IMAGE = "https://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png";
+
+
 class ConversationShow extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +46,7 @@ class ConversationShow extends React.Component {
         <div className="conversation-show">
           {/* <h2>You are chatting with: { otherPerson.username }</h2> */}
           <div className="aside-match-link-div" className="aside-match-link-container">
-            <div className="aside-match-link-image" style={{ backgroundImage: `url(${otherPerson.profile_url})` }}></div>
+            <div className="aside-match-link-image" style={{ backgroundImage: `url("${otherPerson.profile_url ? otherPerson.profile_url : DEFAULT_IMAGE}")` }}></div>
             <span className="aside-match-link-text">{otherPerson.username}</span>
           </div>
           <MessageList user={currentUser} messages={messages} conversation={currentConversation} allUsers={allUsers} />
