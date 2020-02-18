@@ -10,10 +10,33 @@
   padding-top: 15%;
 }
 
+.conversations-none-yet-sidebar {
+  font-family: 'Rock Salt';
+  color: #ccc;
+  font-size: 16px;
+  padding-top: 25%;
+  margin-left: 25px;
+}
+
 .conversation-show {
   /* background-color: hotpink; */
 }
 
 .aside-match-link-image {
   /* backgroundImage: url(); */
+}
+
+.conversations-new-form {
+  width: 215px;
+  display: block;
+  padding: 7.5px 14px;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  margin-top: 7.5px;
+  color: #ddd;
+}
+
+.conversations-new-form:focus {
+  outline: 0;
 }

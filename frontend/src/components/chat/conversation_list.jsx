@@ -28,14 +28,14 @@ class ConversationList extends React.Component {
         );
       });
     } else {
-      return <li>No conversations to show.</li>;
+      return <div className="conversations-none-yet-sidebar">No Conversations Yet!</div>;
     }
   }
   
   render() {
     return (
       <div>
-        <h2>Conversations</h2>
+        {/* <h2>Conversations</h2> */}
         <DEVONLYCreateConversationForm />
         <ul>{ this.renderConversations() }</ul>
       </div>
