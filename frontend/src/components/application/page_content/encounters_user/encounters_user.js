@@ -136,118 +136,38 @@ class EncountersUser extends React.Component {
 
   render() {
     // might be problematic
-    // const currentUser = this.state.singleUser ? this.state.singleUser : {
-    //   _id: "test",
-    //   username: "Terry",
-    //   email: "hulk@yahoo.com",
-    //   location: "Augusta, GA",
-    //   age: "66",
-    //   biography:
-    //     "Looking for friendship, fun and a few fights to stay young at heart.",
-    //   profile_url: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"
-    // };
 
-    // return (
- 
-    //   <div>
-    //     <div
-    //       className="encounters-user"
-    //       title="application > page_content > encounters_user.js"
-    //     >
-    //       <div style={{ backgroundImage: `url("${currentUser.profile_url ? currentUser.profile_url : DEFAULT_PROFILE_IMAGE }")` }} className="encounters-user-left"></div>
-    //       <div className="encounters-user-text">
-    //         {/* <span>
-    //           <span className="bold-text">id: </span>
-    //           {currentUser._id ? currentUser._id : "???"}
-    //         </span> */}
-    //         <br/>
-    //         <br/>
-    //         <span>
-    //           <span className="bold-text">name: </span>
-    //           {currentUser.username ? currentUser.username : "???"}
-    //         </span>
-    //         {/* <span>
-    //           <span className="bold-text">ring name: </span>
-    //           {currentUser.ringName ? currentUser.ringName : "???"}
-    //         </span> */}
-    //         {/* <span>
-    //           <span className="bold-text">location: </span>
-    //           {currentUser.location ? currentUser.location : "???"}
-    //         </span> */}
-    //         {/* <span>
-    //           <span className="bold-text">age: </span>
-    //           {currentUser.age ? currentUser.age : "???"}
-    //         </span> */}
-    //         <br />
-    //         <span>
-    //           <span className="bold-text about-text">about: </span>"
-    //           {currentUser.biography ? currentUser.biography : "???"}"
-    //         </span>
     const { availableUsers } = this.props;
     const { index } = this.state;
-    if (availableUsers && availableUsers.length > 0) {
+
+    if ((this.state.index < availableUsers.length) && (availableUsers) && (availableUsers.length > 0)) {
       let currentUser = availableUsers[index];
-      // debugger;
       return (
         <div>
-          <div
-            className="encounters-user"
-            title="application > page_content > encounters_user.js"
-          >
-            <div style={{ backgroundImage: `url("${currentUser.profile_url ? currentUser.profile_url : DEFAULT_PROFILE_IMAGE }")` }} className="encounters-user-left"></div>
-            <div className="encounters-user-text">
-              <span>
-                <span className="bold-text">id: </span>
-                {currentUser._id ? currentUser._id : "???"}
-              </span>
+          <div className="encounters-user" title="application > page_content > encounters_user.js">
+            <div style={{ backgroundImage: `url("${currentUser.profile_url ? currentUser.profile_url : DEFAULT_PROFILE_IMAGE}")` }} className="encounters-user-left"></div>
+            <div className="encounters-user-text"><br /><br />
               <span>
                 <span className="bold-text">name: </span>
-                {currentUser.username ? currentUser.username : "???"}
-              </span>
-              <span>
-                <span className="bold-text">ring name: </span>
-                {currentUser.ringName ? currentUser.ringName : "???"}
-              </span>
-              <span>
-                <span className="bold-text">location: </span>
-                {currentUser.location ? currentUser.location : "???"}
-              </span>
-              <span>
-                <span className="bold-text">age: </span>
-                {currentUser.age ? currentUser.age : "???"}
-              </span>
-              <br />
+                {currentUser.username ? currentUser.username : "N/A"}
+              </span><br />
               <span>
                 <span className="bold-text about-text">about: </span>"
-                {currentUser.biography ? currentUser.biography : "???"}"
+                {currentUser.biography ? currentUser.biography : "N/A"}"
               </span>
             </div>
             <div className="encounters-user-buttons-div">
-              <button
-                onMouseOver={this.handleDislikeHover}
-                onMouseLeave={this.handleButtonMouseOff}
-                onClick={this.handleReceiveOneUser}
-              >
-                ✌️
-              </button>
-              <button
-                onMouseOver={this.handleLikeHover}
-                onMouseLeave={this.handleButtonMouseOff}
-                onClick={this.handleLikeClick(currentUser._id)}
-              >
-                👊
-              </button>
+              <button onMouseOver={this.handleDislikeHover} onMouseLeave={this.handleButtonMouseOff} onClick={this.handleReceiveOneUser}>✌️</button>
+              <button onMouseOver={this.handleLikeHover} onMouseLeave={this.handleButtonMouseOff} onClick={this.handleLikeClick(currentUser._id)}>👊</button>
             </div>
             <div className="button-hover-text-div"></div>
           </div>
-          {/* <div>
-            <button onClick={this.handleReceiveOneUser}>Would you like to see the next user?</button>
-            {this.state.singleUser ? this.state.singleUser.username : ""}
-          </div> */}
         </div>
       );
     } else {
-      return null;
+      return (
+        <div>hi garon!</div>
+      )
     }
   }
 }
