@@ -12,10 +12,10 @@ span span.bold-text {
 .profile-entry-text-div {
   background-color: rgb(255, 196, 0);
   padding: 15px 0 20px 2vw;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   position: absolute;
   line-height: 20px;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-size: 14px;
   width: 100%;
   bottom: 0;
@@ -26,10 +26,14 @@ span span.bold-text {
   background-image: url("https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8");
   background-position: center;
   background-size: cover;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: .5s;
   flex-shrink: 0;
   /* width: 300px; */
+}
+
+.profile-about-text {
+  width: 220px;
 }
