@@ -137,26 +137,28 @@ class EncountersUser extends React.Component {
         >
           <div style={{ backgroundImage: `url("${currentUser.profile_url ? currentUser.profile_url : DEFAULT_PROFILE_IMAGE }")` }} className="encounters-user-left"></div>
           <div className="encounters-user-text">
-            <span>
+            {/* <span>
               <span className="bold-text">id: </span>
               {currentUser._id ? currentUser._id : "???"}
-            </span>
+            </span> */}
+            <br/>
+            <br/>
             <span>
               <span className="bold-text">name: </span>
               {currentUser.username ? currentUser.username : "???"}
             </span>
-            <span>
+            {/* <span>
               <span className="bold-text">ring name: </span>
               {currentUser.ringName ? currentUser.ringName : "???"}
-            </span>
-            <span>
+            </span> */}
+            {/* <span>
               <span className="bold-text">location: </span>
               {currentUser.location ? currentUser.location : "???"}
-            </span>
-            <span>
+            </span> */}
+            {/* <span>
               <span className="bold-text">age: </span>
               {currentUser.age ? currentUser.age : "???"}
-            </span>
+            </span> */}
             <br />
             <span>
               <span className="bold-text about-text">about: </span>"

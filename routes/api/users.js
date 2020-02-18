@@ -46,22 +46,13 @@ router.get("/seed", (req, res) => {
   console.log("test")
   // create some events
   const users = [
-    { username: 'therock', email: "mail@mail.com", description: 'Throwing into a basket.', password: "password", password2: "password" },
-    { username: 'mankind', email: "mail@mail.com", description: 'Michael Phelps is the fast fish.', password: "password", password2: "password" },
-    { username: 'sportsballs', email: "mail@mail.com", description: 'Lifting heavy things up', password: "password", password2: "password" },
-    { username: 'steveaustin', email: "mail@mail.com", description: 'Super fast paddles', password: "password", password2: "password" },
-    { username: 'kidrock', email: "mail@mail.com", description: 'Throwing into a basket.', password: "password", password2: "password" },
-    { username: 'chyna', email: "mail@mail.com", description: 'Michael Phelps is the fast fish.', password: "password", password2: "password" },
-    { username: 'coronaChan', email: "mail@mail.com", description: 'Does this bat soup taste funny to you?', password: "password", password2: "password" },
-    { username: 'kingcarona', email: "mail@mail.com", description: 'Super fast paddles', password: "password", password2: "password" },
-    { username: 'akebono', email: "mail@mail.com", description: 'Throwing into a basket.', password: "password", password2: "password" },
-    { username: 'bigbadbilly', email: "mail@mail.com", description: 'Michael Phelps is the fast fish.', password: "password", password2: "password" },
-    { username: 'ericwrestle', email: "mail@mail.com", description: 'Lifting heavy things up', password: "password", password2: "password" },
-    { username: 'machinegunsmelly', email: "mail@mail.com", description: 'Super fast paddles', password: "password", password2: "password" },
-    { username: 'bonesaw', email: "mail@mail.com", description: 'Throwing into a basket.', password: "password", password2: "password" },
-    { username: 'postmalone', email: "mail@mail.com", description: 'Michael Phelps is the fast fish.', password: "password", password2: "password" },
-    { username: 'sixnine', email: "mail@mail.com", description: 'Lifting heavy things up', password: "password", password2: "password" },
-    { username: 'takashi', email: "mail@mail.com", description: 'Super fast paddles', password: "password", password2: "password" }
+    { username: 'Dwayne', email: "mail@mail.com", biography: 'Remember when the whole world could smell what The Rock was cooking?', password: "password", password2: "password", profile_url: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Dwayne_Johnson_2%2C_2013.jpg"},
+    { username: 'Chyna', email: "mail@mail.com", biography: 'University of Tampa grad looking to make new arm wrestling friends.', password: "password", password2: "password", profile_url: "https://thenypost.files.wordpress.com/2019/08/chyna_getty.gif"},
+    { username: 'Randy', email: "mail@mail.com", biography: 'This Macho Man still has a lifetime supply of slim jims to share with new friends.', password: "password", password2: "password", profile_url: "https://d2mjvz2lqjkhe7.cloudfront.net/as/assets-mem-com/cmi/7/9/0/1/4681097/20110525_084911_e_orig.jpg/-/randy-poffo-largo-fl-obituary.jpg"},
+    { username: 'Steve', email: "mail@mail.com", biography: 'Even when your stone cold its easy to get lonely as we grow old.', password: "password", password2: "password", profile_url: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Steve_Austin_by_Gage_Skidmore.jpg"},
+    { username: 'Terry', email: "mail@mail.com", biography: 'Looking for new friends, fun and an a occaisional match to stay young at heart.', password: "password", password2: "password", profile_url: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Steve_Austin_by_Gage_Skidmore.jpg"},
+    { username: 'Paul', email: "mail@mail.com", biography: 'Big Show has a big heart and a big friend zone where all are welcome.', password: "password", password2: "password", profile_url: "https://m.media-amazon.com/images/M/MV5BMTQ5NjE1OTY4NF5BMl5BanBnXkFtZTcwMjUxMDMxNw@@._V1_.jpg"},
+    { username: 'Mick', email: "mail@mail.com", biography: 'If God built me a ladder to heaven, I would climb it and elbow drop the world.', password: "password", password2: "password", profile_url: "https://arc-anglerfish-arc2-prod-advancelocal.s3.amazonaws.com/public/TTKV7AUOG5EJRGFUA6TX2I5JU4.jpg"},
   ];
   // use the Event model to insert/save
   User.deleteMany({}, () => {
