@@ -1,3 +1,4 @@
+import './conversations.css'
 import React from 'react';
 import { connect } from 'react-redux';
 import { _createConversation } from '../../actions/chat_actions';

@@ -1,3 +1,4 @@
+import './conversations.css'
 import React from 'react';
 import { connect } from 'react-redux';
 import socketIOClient from 'socket.io-client';
@@ -40,7 +41,7 @@ class ConversationShow extends React.Component {
       let otherPerson = allUsers[otherPersonId];
       return (
         <div className="conversation-show">
-          <h2>You are chatting with: { otherPerson.username }</h2>
+          {/* <h2>You are chatting with: { otherPerson.username }</h2> */}
           <div className="aside-match-link-div" className="aside-match-link-container">
             <div className="aside-match-link-image" style={{ backgroundImage: `url(${otherPerson.profile_url})` }}></div>
             <span className="aside-match-link-text">{otherPerson.username}</span>
@@ -50,7 +51,7 @@ class ConversationShow extends React.Component {
         </div>
       );
     } else {
-      return (<p>No conversation loaded.</p>)
+      return (<p className="conversations-none-yet">Find a Match and Get Chatting!</p>)
     }
   }
 }

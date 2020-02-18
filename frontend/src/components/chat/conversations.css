@@ -1,0 +1,19 @@
+* {
+  /* background-color: pink; */
+}
+
+.conversations-none-yet {
+  font-family: 'Rock Salt';
+  color: #ccc;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 15%;
+}
+
+.conversation-show {
+  /* background-color: hotpink; */
+}
+
+.aside-match-link-image {
+  /* backgroundImage: url(); */
+}
