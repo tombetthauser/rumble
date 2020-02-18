@@ -26,7 +26,7 @@ const ConnectionListItem = ({connections}) => {
   }
 }
 
-const ConnectionList = ({ connections }) => (
+const ConnectionList = ({ connections }) => (     /// any time you use a react component you give it props
   <div className="connection-list">
     <ConnectionListItem connections={connections} />
   </div>
