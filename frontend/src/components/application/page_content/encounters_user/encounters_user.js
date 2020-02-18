@@ -28,13 +28,21 @@ class EncountersUser extends React.Component {
       users_liked_users: null,
       allUsers: null
     };
-    this.fetchAllUsers = this.fetchAllUsers.bind(this);
+    this.populateAllUsers = this.populateAllUsers.bind(this);
     this.handleReceiveOneUser = this.handleReceiveOneUser.bind(this);
     this.handleLikeClick = this.handleLikeClick.bind(this);
   }
 
+  componentDidUpdate() {
+    if (!this.state.allUsers) {
+      this.populateAllUsers();
+    }
+  }
+
   componentDidMount() {
     this.props.fetchUsers();
+    // singleUser: this.populateAllUsers()[this.state.index]
+
     // this.setState({
     //     index: 0,
     //     singleUser: this.fetchAllUsers()[this.state.index]
@@ -43,8 +51,8 @@ class EncountersUser extends React.Component {
       this.setState({ users_liked_users: this.props.user.liked_users });
     }
    // this.state.allUsers = ["cats"]
-    console.log("this.state.allUsers ~~~~~~~~~~~");
-    console.log(this.props);
+    // console.log("this.state.allUsers ~~~~~~~~~~~");
+    // console.log(this.props);
   }
 
   shuffle(array) {
@@ -63,31 +71,34 @@ class EncountersUser extends React.Component {
     return array;
   }
 
-  fetchAllUsers() {
-    let allUsers = [];
+  populateAllUsers() {
+    let populatedAllUsers = [];
 
     this.props.users.forEach(user => {
       if ((!this.props.currentUser.liked_users.includes(user._id)) && (user._id !== this.props.currentUser._id)) {
-        allUsers.push(user)
+        populatedAllUsers.push(user)
       };
     });
-    return this.shuffle(allUsers);
+    this.setState({
+      allUsers: populatedAllUsers
+    });
+    // this.setState({
+    //   singleUser: this.state.allUsers[this.state.index]
+    // })
+    return this.shuffle(populatedAllUsers);
   };
 
   
 
   handleReceiveOneUser(e) {
     e.preventDefault();
-    this.setState({
-      index: this.state.index + 1,
-      singleUser: this.fetchAllUsers()[this.state.index]
-    });
+    this.setState({ index: this.state.index + 1 });
   }
 
   handleLikeClick(e) {
     if (this.state.singleUser) {
-      console.log("this.state ~~~~~~~~~~~");
-      console.log(this.state);
+      // console.log("this.state ~~~~~~~~~~~");
+      // console.log(this.state);
       this.handleReceiveOneUser(e);
       this.props.matchOrLike(this.state.singleUser._id);
     } else {
@@ -116,79 +127,120 @@ class EncountersUser extends React.Component {
   }
 
   render() {
-    const currentUser = this.state.singleUser ? this.state.singleUser : {
-      _id: "test",
-      username: "Terry",
-      email: "hulk@yahoo.com",
-      location: "Augusta, GA",
-      age: "66",
-      biography:
-        "Looking for friendship, fun and a few fights to stay young at heart.",
-      profile_url: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"
-    };
+    // might be problematic
+    // const currentUser = this.state.singleUser ? this.state.singleUser : {
+    //   _id: "test",
+    //   username: "Terry",
+    //   email: "hulk@yahoo.com",
+    //   location: "Augusta, GA",
+    //   age: "66",
+    //   biography:
+    //     "Looking for friendship, fun and a few fights to stay young at heart.",
+    //   profile_url: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"
+    // };
 
-
-    return (
+    // return (
  
-      <div>
-        <div
-          className="encounters-user"
-          title="application > page_content > encounters_user.js"
-        >
-          <div style={{ backgroundImage: `url("${currentUser.profile_url ? currentUser.profile_url : DEFAULT_PROFILE_IMAGE }")` }} className="encounters-user-left"></div>
-          <div className="encounters-user-text">
-            {/* <span>
-              <span className="bold-text">id: </span>
-              {currentUser._id ? currentUser._id : "???"}
-            </span> */}
-            <br/>
-            <br/>
-            <span>
-              <span className="bold-text">name: </span>
-              {currentUser.username ? currentUser.username : "???"}
-            </span>
-            {/* <span>
-              <span className="bold-text">ring name: </span>
-              {currentUser.ringName ? currentUser.ringName : "???"}
-            </span> */}
-            {/* <span>
-              <span className="bold-text">location: </span>
-              {currentUser.location ? currentUser.location : "???"}
-            </span> */}
-            {/* <span>
-              <span className="bold-text">age: </span>
-              {currentUser.age ? currentUser.age : "???"}
-            </span> */}
-            <br />
-            <span>
-              <span className="bold-text about-text">about: </span>"
-              {currentUser.biography ? currentUser.biography : "???"}"
-            </span>
+    //   <div>
+    //     <div
+    //       className="encounters-user"
+    //       title="application > page_content > encounters_user.js"
+    //     >
+    //       <div style={{ backgroundImage: `url("${currentUser.profile_url ? currentUser.profile_url : DEFAULT_PROFILE_IMAGE }")` }} className="encounters-user-left"></div>
+    //       <div className="encounters-user-text">
+    //         {/* <span>
+    //           <span className="bold-text">id: </span>
+    //           {currentUser._id ? currentUser._id : "???"}
+    //         </span> */}
+    //         <br/>
+    //         <br/>
+    //         <span>
+    //           <span className="bold-text">name: </span>
+    //           {currentUser.username ? currentUser.username : "???"}
+    //         </span>
+    //         {/* <span>
+    //           <span className="bold-text">ring name: </span>
+    //           {currentUser.ringName ? currentUser.ringName : "???"}
+    //         </span> */}
+    //         {/* <span>
+    //           <span className="bold-text">location: </span>
+    //           {currentUser.location ? currentUser.location : "???"}
+    //         </span> */}
+    //         {/* <span>
+    //           <span className="bold-text">age: </span>
+    //           {currentUser.age ? currentUser.age : "???"}
+    //         </span> */}
+    //         <br />
+    //         <span>
+    //           <span className="bold-text about-text">about: </span>"
+    //           {currentUser.biography ? currentUser.biography : "???"}"
+    //         </span>
+    const { availableUsers } = this.props;
+    const { index } = this.state;
+    if (availableUsers && availableUsers.length > 0) {
+      let currentUser = this.shuffle(availableUsers)[index];
+      // debugger;
+      return (
+        <div>
+          <div
+            className="encounters-user"
+            title="application > page_content > encounters_user.js"
+          >
+            <div style={{ backgroundImage: `url("${currentUser.profile_url ? currentUser.profile_url : DEFAULT_PROFILE_IMAGE }")` }} className="encounters-user-left"></div>
+            <div className="encounters-user-text">
+              <span>
+                <span className="bold-text">id: </span>
+                {currentUser._id ? currentUser._id : "???"}
+              </span>
+              <span>
+                <span className="bold-text">name: </span>
+                {currentUser.username ? currentUser.username : "???"}
+              </span>
+              <span>
+                <span className="bold-text">ring name: </span>
+                {currentUser.ringName ? currentUser.ringName : "???"}
+              </span>
+              <span>
+                <span className="bold-text">location: </span>
+                {currentUser.location ? currentUser.location : "???"}
+              </span>
+              <span>
+                <span className="bold-text">age: </span>
+                {currentUser.age ? currentUser.age : "???"}
+              </span>
+              <br />
+              <span>
+                <span className="bold-text about-text">about: </span>"
+                {currentUser.biography ? currentUser.biography : "???"}"
+              </span>
+            </div>
+            <div className="encounters-user-buttons-div">
+              <button
+                onMouseOver={this.handleDislikeHover}
+                onMouseLeave={this.handleButtonMouseOff}
+                onClick={this.handleReceiveOneUser}
+              >
+                ✌️
+              </button>
+              <button
+                onMouseOver={this.handleLikeHover}
+                onMouseLeave={this.handleButtonMouseOff}
+                onClick={this.handleLikeClick}
+              >
+                👊
+              </button>
+            </div>
+            <div className="button-hover-text-div"></div>
           </div>
-          <div className="encounters-user-buttons-div">
-            <button
-              onMouseOver={this.handleDislikeHover}
-              onMouseLeave={this.handleButtonMouseOff}
-              onClick={this.handleReceiveOneUser}
-            >
-              ✌️
-            </button>
-            <button
-              onMouseOver={this.handleLikeHover}
-              onMouseLeave={this.handleButtonMouseOff}
-              onClick={this.handleLikeClick}
-            >
-              👊
-            </button>
-          </div>
-          <div className="button-hover-text-div"></div>
+          {/* <div>
+            <button onClick={this.handleReceiveOneUser}>Would you like to see the next user?</button>
+            {this.state.singleUser ? this.state.singleUser.username : ""}
+          </div> */}
         </div>
-        {/* <div>
-          <button onClick={this.handleReceiveOneUser}>Would you like to see the next user?</button>
-          {this.state.singleUser ? this.state.singleUser.username : ""}
-        </div> */}
-      </div>
-    );
+      );
+    } else {
+      return null;
+    }
   }
 }
 
