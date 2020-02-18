@@ -42,9 +42,44 @@ router.get(
   }
 );
 
-
-
-
+router.get("/seed", (req, res) => {
+  console.log("test")
+  // create some events
+  const users = [
+    { username: 'therock', email: "mail@mail.com", description: 'Throwing into a basket.', password: "password", password2: "password" },
+    { username: 'mankind', email: "mail@mail.com", description: 'Michael Phelps is the fast fish.', password: "password", password2: "password" },
+    { username: 'sportsballs', email: "mail@mail.com", description: 'Lifting heavy things up', password: "password", password2: "password" },
+    { username: 'steveaustin', email: "mail@mail.com", description: 'Super fast paddles', password: "password", password2: "password" },
+    { username: 'kidrock', email: "mail@mail.com", description: 'Throwing into a basket.', password: "password", password2: "password" },
+    { username: 'chyna', email: "mail@mail.com", description: 'Michael Phelps is the fast fish.', password: "password", password2: "password" },
+    { username: 'coronaChan', email: "mail@mail.com", description: 'Does this bat soup taste funny to you?', password: "password", password2: "password" },
+    { username: 'kingcarona', email: "mail@mail.com", description: 'Super fast paddles', password: "password", password2: "password" },
+    { username: 'akebono', email: "mail@mail.com", description: 'Throwing into a basket.', password: "password", password2: "password" },
+    { username: 'bigbadbilly', email: "mail@mail.com", description: 'Michael Phelps is the fast fish.', password: "password", password2: "password" },
+    { username: 'ericwrestle', email: "mail@mail.com", description: 'Lifting heavy things up', password: "password", password2: "password" },
+    { username: 'machinegunsmelly', email: "mail@mail.com", description: 'Super fast paddles', password: "password", password2: "password" },
+    { username: 'bonesaw', email: "mail@mail.com", description: 'Throwing into a basket.', password: "password", password2: "password" },
+    { username: 'postmalone', email: "mail@mail.com", description: 'Michael Phelps is the fast fish.', password: "password", password2: "password" },
+    { username: 'sixnine', email: "mail@mail.com", description: 'Lifting heavy things up', password: "password", password2: "password" },
+    { username: 'takashi', email: "mail@mail.com", description: 'Super fast paddles', password: "password", password2: "password" }
+  ];
+  // use the Event model to insert/save
+  User.deleteMany({}, () => {
+    users.forEach(user => {
+      let newUser = new User(user) 
+      
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err;
+          newUser.password = hash;
+          newUser.save()
+        });
+      });
+    })
+    // seeded!
+    return res.send('Database seeded!');
+  });
+})
 
 router.post("/login", (req, res) => {
   console.log("login triggered");
@@ -202,5 +237,15 @@ router.patch('/:userId', upload.single("file"), (req,res) =>{
     });
   }
 })
+
+
+router.delete("/:userId", (req, res) => {
+  User.deleteOne({ _id: req.params.userId }, function (err) {
+    console.log(userId);
+    if (err) return handleError(err);
+    return res.status(200).json({});
+  });
+  return res.status(404).json({ msg: 'no user to delete' });
+});
 
 module.exports = router;

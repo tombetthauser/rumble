@@ -13,6 +13,7 @@ import { fetchUsers } from '../../../../actions/user_actions'
 //import Meeting from "./meeting";
 
 const mapStateToProps = state => ({
+  currentUser: state.session.user,
   users: Object.values(state.users)
 });
 

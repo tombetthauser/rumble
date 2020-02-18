@@ -21,7 +21,11 @@ export default function(state = initialState, action) {
         user: undefined
       };
     case RECEIVE_MATCH_OR_LIKE:
-      return Object.assign({}, state, {user: action.payload})
+      if (action.payload.user) {
+        return Object.assign({}, state, {user: action.payload.user})
+      } else {
+        return Object.assign({}, state, {user: action.payload})
+      }
     default:
       return state;
   }

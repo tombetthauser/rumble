@@ -38,32 +38,46 @@ class EncountersUser extends React.Component {
     // this.setState({
     //     index: 0,
     //     singleUser: this.fetchAllUsers()[this.state.index]
-    //   });
+    //   });s
     if (this.props.user) {
       this.setState({ users_liked_users: this.props.user.liked_users });
     }
-    this.state.allUsers = ["cats"]
+   // this.state.allUsers = ["cats"]
     console.log("this.state.allUsers ~~~~~~~~~~~");
     console.log(this.props);
   }
 
-  fetchAllUsers() {
-    // get all users passed from props,
-    // then copy it to 
-    let allUsers = [];
-    this.props.users.forEach(user => {
-      allUsers.push(user);
-    });
-    return allUsers;
-    // return Obje
+  shuffle(array) {
+    let counter = array.length;
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+        // Decrease counter by 1
+        counter--;
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+    return array;
   }
+
+  fetchAllUsers() {
+    let allUsers = [];
+
+    this.props.users.forEach(user => {
+      if ((!this.props.currentUser.liked_users.includes(user._id)) && (user._id !== this.props.currentUser._id)) {
+        allUsers.push(user)
+      };
+    });
+    return this.shuffle(allUsers);
+  };
+
+  
 
   handleReceiveOneUser(e) {
     e.preventDefault();
-    // console.log("this.state.index ~~~~~~~~~~~");
-    // console.log(this.state.index);
-    // console.log("this.state.singleUser ~~~~~~~~~~~");
-    // console.log(this.state.singleUser);
     this.setState({
       index: this.state.index + 1,
       singleUser: this.fetchAllUsers()[this.state.index]
@@ -113,6 +127,7 @@ class EncountersUser extends React.Component {
       profile_url: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"
     };
 
+
     return (
  
       <div>
@@ -128,7 +143,7 @@ class EncountersUser extends React.Component {
             </span>
             <span>
               <span className="bold-text">name: </span>
-              {currentUser.username}
+              {currentUser.username ? currentUser.username : "???"}
             </span>
             <span>
               <span className="bold-text">ring name: </span>
@@ -145,7 +160,7 @@ class EncountersUser extends React.Component {
             <br />
             <span>
               <span className="bold-text about-text">about: </span>"
-              {currentUser.biography}"
+              {currentUser.biography ? currentUser.biography : "???"}"
             </span>
           </div>
           <div className="encounters-user-buttons-div">

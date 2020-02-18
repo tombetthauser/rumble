@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ConversationListItem = ({ conversation, currentUser, setCurrentConversation, allUsers }) => {
   // let otherPerson = getOtherUsername(currentUser, conversation);
+
   let otherPersonId = conversation.participants.filter(participant => participant._id !== currentUser._id)[0]._id;
   let otherPerson = allUsers[otherPersonId];
   
