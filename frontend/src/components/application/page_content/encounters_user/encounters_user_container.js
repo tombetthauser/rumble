@@ -14,7 +14,18 @@ import { fetchUsers } from '../../../../actions/user_actions'
 
 const mapStateToProps = state => ({
   currentUser: state.session.user,
-  users: Object.values(state.users)
+  users: Object.values(state.users),
+  availableUsers: Object.values(state.users).filter(availableUser => {
+    // debugger;
+    if (availableUser && state.session.user) {
+      let sessionUser = state.session.user;
+      let isNotMe = availableUser._id !== sessionUser._id;
+      let alreadyLiked = sessionUser.liked_users.includes(availableUser._id)
+      return (isNotMe && !alreadyLiked);
+    } else {
+      return false;
+    }
+  }),
 });
 
 const mapDispatchToProps = dispatch => ({
