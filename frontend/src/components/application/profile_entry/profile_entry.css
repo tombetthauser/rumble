@@ -32,6 +32,7 @@ span span.bold-text {
   transition: .5s;
   flex-shrink: 0;
   /* width: 300px; */
+  overflow: hidden;
 }
 
 .profile-about-text {
