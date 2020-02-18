@@ -5,6 +5,8 @@ import { withRouter } from "react-router-dom";
 import SidebarProfile from "./sidebar_profile/sidebar_profile_container";
 import ConversationList from "../../chat/conversation_list";
 
+const DEFAULT_IMAGE = "https://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png";
+
 const BackToMeetings = () => (
   <Link to="/app">
     <div className="to-connections-button hidden">Back to meeting new people ></div>
@@ -16,7 +18,7 @@ const ConnectionListItem = ({connections}) => {
     return(
       <Link to="/app/connections">
         <div className="aside-match-link-div" className="aside-match-link-container" >
-          <div className="aside-match-link-image" style={{ backgroundImage: connections[0].profileImage }}></div>
+          <div className="aside-match-link-image" style={{ backgroundImage: connections[0].profileImage ? connections[0].profileImage : DEFAULT_IMAGE }}></div>
           <span className="aside-match-link-text" >{ connections[0].name }</span>
         </div>
       </Link>
