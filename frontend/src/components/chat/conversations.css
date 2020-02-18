@@ -29,6 +29,25 @@
   outline: 0;
 }
 
+.individual-message-other {
+  background-color: rgb(255, 196, 0);
+  width: fit-content;
+  color: #fff;
+  padding: 12px 22px;
+  margin: 15px 25px;
+  border-radius: 25px;
+}
+
+.individual-message-self {
+  background-color: #ccc;
+  width: fit-content;
+  color: #fff;
+  padding: 12px 22px;
+  margin: 15px 25px;
+  border-radius: 25px;
+  margin-left: auto;
+}
+
 .individual-message {
   background-color: rgb(255, 196, 0);
   width: fit-content;

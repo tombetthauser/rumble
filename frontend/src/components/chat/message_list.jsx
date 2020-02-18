@@ -3,8 +3,8 @@ import React from 'react';
 
 // import { getOtherUsername } from '../../util/chat_api_util';
 
-const renderMessages = messages => (
-  messages.map((message, i) => <li className="individual-message" key={i}>{message.author.username}: {message.body}</li>)
+const renderMessages = (messages, other ) => (
+  messages.map((message, i) => <li className={ (message.author.username === other.username) ? "individual-message-other" : "individual-message-self" } key={i}>{message.author.username}: {message.body}</li>)
 )
 
 const MessageList = ({ user, conversation, messages, allUsers }) => {
@@ -16,7 +16,7 @@ const MessageList = ({ user, conversation, messages, allUsers }) => {
   if (relevantMessages) {
     return (
       <div className="messages">
-        <ul className="message-list">{renderMessages(relevantMessages)}</ul>
+        <ul className="message-list">{renderMessages(relevantMessages, otherPerson)}</ul>
       </div>
     );
   } else {

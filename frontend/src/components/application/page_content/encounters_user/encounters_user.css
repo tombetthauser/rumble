@@ -139,3 +139,30 @@ span span.bold-text {
     width: 90px;
   }
 }
+
+
+.all-out-outer-div {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.all-out-inner-div {
+  margin-top: 15%;
+}
+
+.all-out-title {
+  font-family: 'Rock Salt';
+  text-align: center;
+  font-size: 20px;
+  line-height: 50px;
+  color: #777;
+}
+
+.all-out-sub-title {
+  font-family: 'Rock Salt';
+  text-align: center;
+  color: #777;
+}
+

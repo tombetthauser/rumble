@@ -166,7 +166,12 @@ class EncountersUser extends React.Component {
       );
     } else {
       return (
-        <div>hi garon!</div>
+        <div className="all-out-outer-div" >
+          <div className="all-out-inner-div" >
+            <div className="all-out-title" >All Out of Users!</div>
+            <div className="all-out-sub-title" >(try back later)</div>
+          </div>
+        </div>
       )
     }
   }

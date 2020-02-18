@@ -25,7 +25,8 @@ const chatReducer = (state = defaultState, action) => {
       if (action.payload.conversation) {
         return merge({}, state, { conversations: { [action.payload.conversation._id]: action.payload.conversation } });
       } else {
-        return state;
+        return merge({}, state, { conversations: { [action.conversation._id]: action.conversation } });
+        // return state;
       }
     default:
       return state;
