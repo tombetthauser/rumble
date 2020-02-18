@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
     if (availableUser && state.session.user && state.session.user.liked_users) {
       let sessionUser = state.session.user;
       let isNotMe = availableUser._id !== sessionUser._id;
-      let alreadyLiked = sessionUser.liked_users.includes(availableUser._id)
+      let alreadyLiked = state.users[sessionUser._id].liked_users.includes(availableUser._id)
       return (isNotMe && !alreadyLiked);
     } else {
       return false;

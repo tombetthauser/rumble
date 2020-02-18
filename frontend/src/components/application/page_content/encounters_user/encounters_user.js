@@ -147,7 +147,6 @@ class EncountersUser extends React.Component {
     //   profile_url: "https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8"
     // };
 
-<<<<<<< HEAD
     // return (
  
     //   <div>
@@ -184,8 +183,6 @@ class EncountersUser extends React.Component {
     //           <span className="bold-text about-text">about: </span>"
     //           {currentUser.biography ? currentUser.biography : "???"}"
     //         </span>
-=======
->>>>>>> 1e727a336941d0d7675ecaf53bfc16d9a3477532
     const { availableUsers } = this.props;
     const { index } = this.state;
     if (availableUsers && availableUsers.length > 0) {

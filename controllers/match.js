@@ -19,14 +19,29 @@ exports.matchOrLike = function (req, res) {
             // add otherUser._id to currentUser.likes
             User.findOne({ _id: req.user._id }).exec((err, foundCurrentUser) => {
                 if (err) throw err;
-                console.log('attempted find');
-                // console.log(filter);
                 if (foundCurrentUser) {
-                    console.log(foundCurrentUser);
                     foundCurrentUser.liked_users.push(req.body.recipientId);
                     foundCurrentUser.save((err, savedUser) => {
                         if (err) throw err;
-                        return res.status(200).json(savedUser);
+
+                        // is it a match?
+                        if (otherUser.liked_users.includes(currentUserId)) {
+                            Conversation.findOne({ participants: [currentUserId, otherUserId] }).exec((err, foundConversation) => {
+                                if (err) throw err;
+                                console.log(foundConversation)
+                                if (!foundConversation) {
+                                    let newConvo = new Conversation({ participants: [currentUserId, otherUserId] });
+                                    newConvo.save((err, savedConvo) => {
+                                        return res.status(200).json({ conversation: savedConvo, user: req.user });
+                                    });
+                                } else {
+                                    // only if we see a person again
+                                    return res.status(200).json(savedUser);
+                                }
+                            });
+                        } else {
+                            return res.status(200).json(savedUser);
+                        }
                     });
                 } else {
                     console.log('no currentUser found');
@@ -35,22 +50,6 @@ exports.matchOrLike = function (req, res) {
 
             })
 
-            // is it a match?
-            if (otherUser.liked_users.includes(currentUserId)) {
-                Conversation.findOne({ participants: [currentUserId, otherUserId] }).exec((err, foundConversation) => {
-                    if (err) throw err;
-                    console.log(foundConversation)
-                    if (foundConversation) {
-                        let newConvo = new Conversation({ participants: [currentUserId, otherUserId] });
-                        newConvo.save((err, savedConvo) => {
-                            return res.status(200).json({ conversation: savedConvo, user: req.user });
-                        });
-                    } else {
-                        // only if we see a person again
-                        return res.status(200).json({});
-                    }
-                });
-            }
         } else {
             return res.status(422).json({ msg: 'unprocessable matchOrLike' })
         }
