@@ -1,6 +1,6 @@
 # Rumble
 
-![Rumble Image](https://github.com/johnenriquez/spacebrite/blob/master/app/assets/images/app-screens/hero-wide.png)
+![Rumble Image](https://raw.githubusercontent.com/tombetthauser/rumble/master/readme_screen_shots/rumble01.png)
 
 Rumble is a Bumble dating app clone re-tooled to help retired professional wrestlers find eachother for friendship and the occaisionally friendly wrestling match.
 
