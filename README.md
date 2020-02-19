@@ -18,39 +18,7 @@ Rumble was built in February of 2020 by Josh Graham, John Enriquez, Garon Hock a
 - Automatic Chat upon User Match
 - Live Text Chatting
 
-
-
-<!-- ### Authentication -->
-
-<!-- While Spacebrite allows you to browse flights without registering, features such as bookmarks, trips, and checkins are unavailable until you sign up. If you don't want to create an account immediately, you can log in as a demo user.
-
-The forms validate that you've filled out the fields and display any relevant error messages in red.
-
-Logging in:
-
-![Login Screen With Errors](https://github.com/johnenriquez/spacebrite/blob/master/app/assets/images/app-screens/login-screen-with-errors.png)
-
-Signing up:
-
-![Signup Screen With Errors](https://github.com/johnenriquez/spacebrite/blob/master/app/assets/images/app-screens/signup-with-errors.png) -->
-
-<!-- ### User Profile Edits -->
-
-<!-- ![Spaceport Screen](https://github.com/johnenriquez/spacebrite/blob/master/app/assets/images/app-screens/spaceport-wide.png)
-
-You can view upcoming flights to and from a specific spaceport, regardless of whether you've logged in. Spaceports have their own IATA code, the planet (or celestial body) of their location, and their locality upon that planet. Visiting a spaceport page reveals the inbound and outbound flights scheduled to or from that spaceport.
-
-Flights have their own identification numbers. They all belong to specfic spaceline companies and have a model designation. -->
-
-
-<!-- ### Matching with Other Users -->
-
-<!-- ### Automatic Chat upon User Match -->
-
-<!-- ### Automatic Chat upon User Match -->
-
-<!-- ### Live Text Chatting -->
-
+![Rumble Image](https://raw.githubusercontent.com/tombetthauser/rumble/master/readme_screen_shots/rumble03.png)
 
 ### Upcoming Features
 
@@ -67,7 +35,6 @@ Rumble uses a MERN stack, AWS for image hosting and Websockets for live chatting
 Feature requests are always welcome. The cleanest way to send any feedback is to [open an issue](https://github.com/tombetthauser/rumble/issues).
 
 ![Rumble Image](https://raw.githubusercontent.com/tombetthauser/rumble/master/readme_screen_shots/rumble02.png)
-![Rumble Image](https://raw.githubusercontent.com/tombetthauser/rumble/master/readme_screen_shots/rumble03.png)
 
 
 <!-- FOR RESEEDING / DATABASE WIPE -->
