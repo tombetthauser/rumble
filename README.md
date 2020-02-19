@@ -7,7 +7,7 @@ Rumble is a Bumble dating app clone re-tooled to help retired professional wrest
 Rumble was built in February of 2020 by Josh Graham, John Enriquez, Garon Hock and Tom Betthauser using a MERN stack. The project's MVP functionality and UI were completed in 8 days. It's design and user experience stick very close to the actual Bumble but takes it's own direction in several areas.
 
 ### Useful Links
-- [Live Site](https://rumble-demo.herokuapp.com/#/app/connections) hosted on Heroku
+- [Live Site](https://rumble-demo.herokuapp.com/) hosted on Heroku
 - [Github repo](https://github.com/tombetthauser/rumble) (This document)
 
 ### Current Features
