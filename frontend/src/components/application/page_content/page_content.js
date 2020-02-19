@@ -34,7 +34,7 @@ class PageContent extends React.Component {
 
   render() {    
     return (
-      <div className="page-content-div" title="application > page_content > page_content.js">
+      <div className="page-content-div" >
         <Switch>
           <Route exact path="/app/connections" component={ConversationView} />
           <Route exact path="/app/edit-profile" component={EditProfileComponent} />

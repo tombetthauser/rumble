@@ -50,7 +50,7 @@ class LeftNavColumn extends React.Component {
     const matchedUsers = this.props.matchedUsers ? this.props.matchedUsers : [{id: 1, name: "Terry", ringName: "Hulk Hogan", location: "Augusta, GA", age: "66", about: "Looking for friendship, fun and a few fights to stay young at heart.", profileImage: "url('https://s.yimg.com/uu/api/res/1.2/GBi4ioTdBU5pI_mj2qdoOA--~B/aD0xODAwO3c9MjcwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/people_218/f4ad8855ecce83db4bad5aab2cc047e8')"}];
 
     return (
-      <div className="aside-div" title="application > aside.js">
+      <div className="aside-div" >
         <SidebarProfile />
         { this.renderMeetingsButton() } 
         <span className="match-conversations-text">Match Queue / Conversations:</span>
