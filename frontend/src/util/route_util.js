@@ -27,6 +27,14 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
   />
 );
 
+const Logged = ({ component: Component, loggedIn, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) => (loggedIn) ? (<Redirect to="/app" />) : (<Component {...props} />)
+    }
+  />
+);
+
 // Use the isAuthenitcated slice of state to determine whether a user is logged in
 
 const mapStateToProps = state => (
@@ -34,5 +42,5 @@ const mapStateToProps = state => (
 );
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
-
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+export const LoggedRoute = withRouter(connect(mapStateToProps)(Logged));
