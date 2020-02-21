@@ -1,24 +1,35 @@
 .navbar-links-div {
-  display: flex;
   justify-content: space-between;
+  background-color: #fff;
   align-items: center;
   padding: 10px 20px;
-  background-color: #fff;
   min-width: 690px;
+  display: flex;
+}
+
+.navbar-links-right a {
+  vertical-align: 7.5px;
+  padding: 0px 15px;
+  font-weight: 600;
+  display: inline;
+  color: #222;
+}
+
+.navbar-logo-icon {
+  vertical-align: -3px;
+  margin-right: -5px;
+  margin-left: -7px;
+  font-size: 35px;
 }
 
 .navbar-title {
   color: rgb(255, 196, 0);
-  font-size: 40px;
   font-weight: 500;
+  font-size: 40px;
 }
 
-.navbar-links-right a {
-  color: #222;
-  display: inline;
-  font-weight: 600;
-  padding: 0 15px;
-  vertical-align: 7.5px;
+.navbar-links-right {
+  margin-top: 10px;
 }
 
 .navbar-links-right a:hover {
@@ -28,11 +39,4 @@
 
 .navbar-title, .navbar-links-right {
   display: inline;
-}
-
-.navbar-logo-icon {
-  font-size: 35px;
-  vertical-align: -3px;
-  margin-left: -7px;
-  margin-right: -5px;
 }
