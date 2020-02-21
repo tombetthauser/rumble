@@ -8,6 +8,7 @@
 .main-page-div {
   background-image: url(https://www.thedelite.com/wp-content/uploads/2019/05/GettyImages-93358402-e1562954184459.jpg);
   background-position: center;
+  background-color: black;
   justify-content: center;
   background-size: cover;
   align-items: center;
@@ -26,7 +27,7 @@
   flex-direction: column;
   align-content: center;
   text-align: center;
-  padding: 25px 50px;
+  padding: 25px 50px 35px;
   display: flex;
   height: 160px;
   width: 475px;
