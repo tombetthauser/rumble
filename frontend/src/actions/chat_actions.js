@@ -16,9 +16,9 @@ export const receiveConversations = payload => ({
   payload,
 });
 
-export const receiveConversation = payload => ({
+export const receiveConversation = conversation => ({
   type: RECEIVE_CONVERSATION,
-  payload,
+  conversation,
 });
 
 export const receiveMessage = payload => ({

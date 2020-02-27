@@ -1,6 +1,6 @@
 const User = require('../models/User.js');
 const Conversation = require('../models/chat/Conversation.js');
-
+const ChatServerClient = require('../util/chat_server_client');
 
 exports.matchOrLike = function (req, res) {
     let currentUserId = req.user._id;
@@ -30,8 +30,14 @@ exports.matchOrLike = function (req, res) {
                                 if (err) throw err;
                                 console.log(foundConversation)
                                 if (!foundConversation) {
+                                    // lets start the conversation
                                     let newConvo = new Conversation({ participants: [currentUserId, otherUserId] });
                                     newConvo.save((err, savedConvo) => {
+
+                                        const chat = new ChatServerClient();
+                                        console.log("savedConvo", savedConvo);
+                                        chat.dispatchNewConversation(savedConvo);
+
                                         return res.status(200).json({ conversation: savedConvo, user: req.user });
                                     });
                                 } else {

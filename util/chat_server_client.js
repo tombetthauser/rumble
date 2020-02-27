@@ -22,6 +22,12 @@ class ChatServerClient {
         this.socket.emit('broadcast_message', payload);
     })
   }
+
+  dispatchNewConversation(conversation) {
+    console.log("dispatched new convo")
+    let participants = conversation.participants;
+    this.socket.emit('new_conversation', participants);
+  }
 }
 
 module.exports = ChatServerClient;
