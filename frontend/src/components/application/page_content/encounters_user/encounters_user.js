@@ -105,7 +105,10 @@ class EncountersUser extends React.Component {
     //   // console.log("this.state ~~~~~~~~~~~");
     //   // console.log(this.state);
     // this.props.matchOrLike(this.state.singleUser._id);
-    this.props.matchOrLike(userId).then(() => this.handleReceiveOneUser(e));
+    let alreadyLiked = this.props.sessionUser.user.liked_users.includes(userId);
+    if (!alreadyLiked) {
+      this.props.matchOrLike(userId).then(() => this.handleReceiveOneUser(e));
+    }
     // } else {
     //   this.handleReceiveOneUser(e);
     // }
@@ -137,10 +140,26 @@ class EncountersUser extends React.Component {
     // might be problematic
 
     const { availableUsers } = this.props;
-    const { index } = this.state;
+    let { index } = this.state;
 
-    if ((this.state.index < availableUsers.length) && (availableUsers) && (availableUsers.length > 0)) {
-      let currentUser = availableUsers[index];
+    
+    // console.log("index", index);
+    // if ((this.state.index < availableUsers.length) && (availableUsers) && (availableUsers.length > 0)) {
+    if (this.props.users.length > 0) {
+      console.log(this.props);
+      // let currentUser = availableUsers[index];
+      index = index % this.props.users.length;
+      let currentUser = this.props.users[index];
+      let isMe = this.props.sessionUser.user._id === currentUser._id
+      let alreadyLiked = this.props.sessionUser.user.liked_users.includes(currentUser._id);
+      let shouldSkipUser = isMe || alreadyLiked;
+      if (shouldSkipUser) {
+        index++;
+        index = index % this.props.users.length;
+        // this.setState({ index: this.state.index + 1 });
+      }
+      currentUser = this.props.users[index];
+      // debugger;
       return (
         <div>
           <div className="encounters-user" >
