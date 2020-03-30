@@ -14,8 +14,8 @@ import ConversationShow from "./chat/conversation_show";
 const App = () => (
   <div>
     <Switch>
-      <Route path="/app" component={ApplicationComponent} />
-      <Route exact path="/" component={SplashPageComponent} />
+      <ProtectedRoute path="/app" component={ApplicationComponent} />
+      <AuthRoute exact path="/" component={SplashPageComponent} />
 
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
