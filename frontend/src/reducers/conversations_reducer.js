@@ -23,7 +23,6 @@ const chatReducer = (state = defaultState, action) => {
     case RECEIVE_CONVERSATION:
     case RECEIVE_MATCH_OR_LIKE:
       if (action.payload.conversation) {
-        debugger;
         return merge({}, state, { conversations: { [action.payload.conversation._id]: action.payload.conversation } });
       } else if(action.conversation){
         return merge({}, state, { conversations: { [action.conversation._id]: action.conversation } });
