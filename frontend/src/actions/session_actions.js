@@ -5,13 +5,16 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
-
+export const DUMMY_TYPE = "DUMMY_TYPE"
 // We'll dispatch this when our user signs in
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
 });
 
+export const reseedActionType = () => ({
+  type: DUMMY_TYPE
+})
 
 // This will be used to redirect the user to the login page upon signup
 export const receiveUserSignIn = () => ({
@@ -31,7 +34,7 @@ export const logoutUser = () => ({
 
 
 export const update = (user, userId) => dispatch =>{
-  return APIUtil.update(user, userId).then((user)=> dispatch(receiveCurrentUser(user)), 
+  return APIUtil.update(user, userId).then((user)=> dispatch(receiveCurrentUser(user.data)), 
   err => dispatch(receiveErrors(err.response.data)))
 }
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
@@ -53,6 +56,13 @@ export const login = user => dispatch =>
   }).catch(err => {
     dispatch(receiveErrors(err.response.data));
   });
+
+
+  export const reseed = () => dispatch =>  {
+      return APIUtil.reseed().then(() =>
+        dispatch(reseedActionType())
+      );
+  }
 
 // We wrote this one earlier
 export const logout = () => dispatch => {

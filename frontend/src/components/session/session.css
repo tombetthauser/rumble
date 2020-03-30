@@ -1,0 +1,122 @@
+.session-page-float-div p {
+  color: #333;
+  font-size: 14px;
+  font-weight: 50;
+  line-height: 17px;
+  margin-bottom: 20px;
+}
+
+.session-page-div {
+  /* background-image: url(https://www.thedelite.com/wp-content/uploads/2019/05/GettyImages-93358402-e1562954184459.jpg); */
+  background-position: center;
+  justify-content: center;
+  background-size: cover;
+  align-items: center;
+  position: absolute;
+  min-height: 400px;
+  min-width: 750px;
+  display: flex;
+  bottom: 60px;
+  width: 100%;
+  top: 60px;
+}
+
+.session-page-float-div {
+  background-color: rgba(255, 255, 255, .9);
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  padding: 20px 50px 30px;
+  display: flex;
+  /* height: 160px; */
+  width: 375px;
+}
+
+.session-page-float-div h1 {
+  color: #333;
+  margin-bottom: 15px;
+  letter-spacing: -.75px;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.session-page-buttons-div {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.session-page-button-submit {
+  display: inline-block;
+  background-color: rgb(255, 196, 0);
+  border: 2px solid rgb(255, 196, 0);
+  color: #fff;
+  width: 150px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: .2s;
+  margin-top: 12.5px;
+}
+
+/* .session-page-button-demo {
+  display: inline-block;
+  background-color: #fff;
+  border: 2px solid rgb(255, 196, 0);
+  color: rgb(255, 196, 0);
+  width: 150px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: .2s;
+} */
+
+.session-page-button-submit:hover {
+  background-color: #444 ;
+  border: 2px solid #444 ;
+  color: #fff;
+  transition: .2s;
+}
+
+/* .session-page-button-demo:hover {
+  background-color: #444 ;
+  border: 2px solid #444 ;
+  color: #fff;
+  transition: .2s;
+} */
+
+.footer-text {
+  font-size: 12px;
+  position: absolute;
+  bottom: -35px;
+  text-align: center;
+  color: #ccc;
+}
+
+.session-input-field {
+  border: solid 1px rgb(255, 196, 0);
+  border-radius: 30px;
+  height: 30px;
+  width: 225px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 50;
+  padding-left: 17.5px;
+}
+
+.session-input-field::placeholder {
+  color: #ddd;
+}
+
+.session-input-field:focus {
+  outline: 0;
+}
+
+.session-page-float-div hr {
+  opacity: .4;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

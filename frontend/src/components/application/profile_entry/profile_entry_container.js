@@ -1,16 +1,23 @@
 import { connect } from "react-redux";
 import ProfileEntry from "./profile_entry";
+import { createMessage, receiveMessage } from '../../../actions/chat_actions';
+import { fetchUsers } from '../../../actions/user_actions';
 
-// COMMENTED OUT LINES ARE LEFT AS FORMATTING EXAMPLES
-// import { logout } from "../../actions/session_actions";
-
-const mapStateToProps = state => ({
-  // user: state.session.user,
-  // loggedIn: state.session.isAuthenticated
+const mapStateToProps = ({ session: { user }, chat: { conversations: { currentConversation, conversations }, messages }, users }) => ({
+  currentUser: user,
+  currentConversation: conversations[currentConversation],
+  messages,
+  allUsers: users
 });
 
 const mapDispatchToProps = dispatch => ({
-    // logout: user => dispatch(logout(user))
+  sendMessage: message => dispatch(createMessage(message)),
+  receiveMessage: message => dispatch(receiveMessage({ message })),
+  fetchUsers: () => dispatch(fetchUsers()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileEntry);
+
+
+
+

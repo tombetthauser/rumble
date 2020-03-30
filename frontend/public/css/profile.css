@@ -1,6 +1,9 @@
 .default-profile-pic{
-  background-image: url('../images/user.png');
-  background-size: 100% 100%;
-  width:140px;
-  height:140px;
+  background-image: url('https://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 10%;
+  opacity: .5;
 }
