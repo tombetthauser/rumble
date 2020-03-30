@@ -5,9 +5,6 @@ import "./main_page.css";
 import {login} from "../../actions/session_actions";
 import {reseed} from "../../actions/session_actions";
 import {connect} from "react-redux";
-// const mSTP = (state) =>({
-  
-// })
 
 
 const mDTP = (dispatch) =>({
@@ -30,7 +27,6 @@ class MainPage extends React.Component {
     };
 
     this.props.login(Demo)
-    .then(() => this.props.reseed())
     .then(() => this.props.history.push("/app"));
   }
   render() {
