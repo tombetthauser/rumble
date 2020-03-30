@@ -19,3 +19,7 @@ export const login = userData => {
 export const update = userData => {
   return axios.patch( `/api/users/${userData._id}`, userData);
 }
+
+export const reseed = () =>{
+  return axios.get(`/api/users/seed`)
+}

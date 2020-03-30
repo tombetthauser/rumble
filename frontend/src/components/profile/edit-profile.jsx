@@ -37,11 +37,6 @@ class EditForm extends React.Component {
     }
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.update(this.state);
-
-  // }
 
   handlePhotoSubmit(e) {
     e.preventDefault();
