@@ -26,9 +26,6 @@ class ProfileEntry extends React.Component {
       otherPerson = allUsers[otherPersonId];
     }
 
-    console.log("otherPerson ------------------------")
-    console.log(otherPerson)
-
     // encodeURI(otherPerson.profile_url)
 
     return (
