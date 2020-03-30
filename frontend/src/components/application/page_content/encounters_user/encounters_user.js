@@ -105,8 +105,7 @@ class EncountersUser extends React.Component {
     //   // console.log("this.state ~~~~~~~~~~~");
     //   // console.log(this.state);
     // this.props.matchOrLike(this.state.singleUser._id);
-    this.props.matchOrLike(userId);
-    this.handleReceiveOneUser(e);
+    this.props.matchOrLike(userId).then(() => this.handleReceiveOneUser(e));
     // } else {
     //   this.handleReceiveOneUser(e);
     // }
