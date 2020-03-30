@@ -28,7 +28,7 @@ class SidebarProfile extends React.Component {
   render() {
     return (
       <Link to="/app/edit-profile">
-        <div className="sidebar-profile-div" title="application > aside > sidebar_profile.js">
+        <div className="sidebar-profile-div" >
           { this.showProfilePicture() }
           { this.showUserName() }
         </div>

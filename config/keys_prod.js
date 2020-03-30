@@ -8,3 +8,4 @@ module.exports = {
   AWS_UPLOADED_FILE_URL_LINK: process.env.AWS_UPLOADED_FILE_URL_LINK,
   CHAT_SERVER_ENDPOINT: process.env.CHAT_SERVER_ENDPOINT
 };
+

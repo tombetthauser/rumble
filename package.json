@@ -9,7 +9,9 @@
     "dev": "concurrently \"npm run server:debug\" \"npm run frontend\"",
     "start": "node app.js",
     "server": "nodemon app.js",
-    "server:debug": "nodemon --inspect app.js"
+    "server:debug": "nodemon --inspect app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+
   },
   "repository": {
     "type": "git",
